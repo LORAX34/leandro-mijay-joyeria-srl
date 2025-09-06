@@ -2,20 +2,120 @@
 import Logo from "@/components/icons/Logo.astro";
 ---
 
-<section class="relative bg-black flex items-center justify-between p-4">
-    <div class="p-2"><Logo /></div>
-    <nav
-        class="bg-white/10 flex justify-center items-center p-2 gap-8 border border-white/20 rounded-full backdrop-blur-md"
+<section
+    class="animate-fade-in animate-delay-250 relative bg-primary rounded-b-3xl flex items-center justify-between p-4"
+>
+    <!-- Logo -->
+    <div class="p-2"><Logo class="w-xl" /></div>
+
+    <!-- Botón de menú hamburguesa (solo móvil) -->
+    <button
+        id="mobile-menu-button"
+        class="md:hidden flex flex-col justify-center items-center w-10 h-10 p-2 space-y-1.5 rounded text-silver-ligth hover:text-silver focus:outline-none"
     >
-        <a class="text-white font-semibold hover:text-gray-200">Home</a>
-        <a class="text-white font-semibold hover:text-gray-200">Catalogo</a>
-        <a class="text-white font-semibold hover:text-gray-200">Blog</a>
-        <a class="text-white font-semibold hover:text-gray-200">Contacto</a>
-    </nav>
-    <div class="px-4">
-        <button
-            class="bg-white hover:bg-sky-50 shadow-white text-blue-600 hover:text-blue-800 font-bold py-2 px-4 rounded-full hover:scale-110 transform hover:shadow-2xl"
-            >Listos Para recibirte</button
+        <span
+            class="block w-6 h-0.5 bg-current transition-transform duration-300"
+        ></span>
+        <span class="block w-6 h-0.5 bg-current transition-opacity duration-300"
+        ></span>
+        <span
+            class="block w-6 h-0.5 bg-current transition-transform duration-300"
+        ></span>
+    </button>
+
+    <!-- Navegación (escritorio) -->
+    <nav
+        class="hidden md:flex bg-white/10 justify-center items-center p-2 gap-8 border border-white/20 rounded-full backdrop-blur-md"
+    >
+        <a class="text-silver-ligth font-semibold hover:text-silver">Home</a>
+        <a class="text-silver-ligth font-semibold hover:text-silver">Catalogo</a
         >
+        <a class="text-silver-ligth font-semibold hover:text-silver">Blog</a>
+        <a class="text-silver-ligth font-semibold hover:text-silver">Contacto</a
+        >
+    </nav>
+
+    <!-- Menú móvil (oculto por defecto) -->
+    <div
+        id="mobile-menu"
+        class="hidden absolute top-full left-0 right-0 bg-primary border-t border-white/20 md:hidden"
+    >
+        <div class="flex flex-col p-4 space-y-4">
+            <a class="text-silver-ligth font-semibold hover:text-silver py-2"
+                >Home</a
+            >
+            <a class="text-silver-ligth font-semibold hover:text-silver py-2"
+                >Catalogo</a
+            >
+            <a class="text-silver-ligth font-semibold hover:text-silver py-2"
+                >Blog</a
+            >
+            <a class="text-silver-ligth font-semibold hover:text-silver py-2"
+                >Contacto</a
+            >
+        </div>
     </div>
 </section>
+
+<script>
+    // Toggle del menú móvil
+    document.addEventListener("DOMContentLoaded", () => {
+        const menuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        menuButton.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+
+            // Animación del botón hamburguesa a X
+            const spans = menuButton.querySelectorAll("span");
+            if (!mobileMenu.classList.contains("hidden")) {
+                spans[0].style.transform = "translateY(6px) rotate(45deg)";
+                spans[1].style.opacity = "0";
+                spans[2].style.transform = "translateY(-6px) rotate(-45deg)";
+            } else {
+                spans[0].style.transform = "";
+                spans[1].style.opacity = "";
+                spans[2].style.transform = "";
+            }
+        });
+
+        // Cerrar menú al hacer clic fuera de él
+        document.addEventListener("click", (e) => {
+            if (
+                !menuButton.contains(e.target) &&
+                !mobileMenu.contains(e.target) &&
+                !mobileMenu.classList.contains("hidden")
+            ) {
+                mobileMenu.classList.add("hidden");
+                const spans = menuButton.querySelectorAll("span");
+                spans[0].style.transform = "";
+                spans[1].style.opacity = "";
+                spans[2].style.transform = "";
+            }
+        });
+    });
+</script>
+
+<style>
+    /* Estilos para la animación del menú móvil */
+    #mobile-menu {
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease;
+    }
+
+    #mobile-menu:not(.hidden) {
+        animation: slideDown 0.3s ease forwards;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>

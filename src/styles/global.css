@@ -1,2 +1,13 @@
 @import "tailwindcss";
 @plugin "@midudev/tailwind-animations";
+
+@theme {
+    --color-zafiro: #082567;
+    --color-zafiro-claro: #04339e;
+    --color-primary: #1a1919;
+    --color-secondary: #f9f9f9;
+    --color-gold: #d4af37;
+    --color-gold-light: #ffd13e;
+    --color-silver: #c0c0c0;
+    --color-silver-ligth: #e8e8e8;
+}
