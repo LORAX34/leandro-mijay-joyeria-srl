@@ -1,0 +1,21 @@
+---
+import Logo from "@/components/icons/Logo.astro";
+---
+
+<section class="relative bg-black flex items-center justify-between p-4">
+    <div class="p-2"><Logo /></div>
+    <nav
+        class="bg-white/10 flex justify-center items-center p-2 gap-8 border border-white/20 rounded-full backdrop-blur-md"
+    >
+        <a class="text-white font-semibold hover:text-gray-200">Home</a>
+        <a class="text-white font-semibold hover:text-gray-200">Catalogo</a>
+        <a class="text-white font-semibold hover:text-gray-200">Blog</a>
+        <a class="text-white font-semibold hover:text-gray-200">Contacto</a>
+    </nav>
+    <div class="px-4">
+        <button
+            class="bg-white hover:bg-sky-50 shadow-white text-blue-600 hover:text-blue-800 font-bold py-2 px-4 rounded-full hover:scale-110 transform hover:shadow-2xl"
+            >Listos Para recibirte</button
+        >
+    </div>
+</section>

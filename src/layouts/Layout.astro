@@ -1,5 +1,7 @@
 ---
-import "../styles/global.css";
+import "@/styles/global.css";
+import Header from "@/components/layout/Header.astro";
+const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -7,11 +9,12 @@ import "../styles/global.css";
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/Leandro_Mijail-Logo.png" />
+        <link rel="icon" type="image/svg+xml" href="/Leandro_Mijail.svg" />
         <meta name="generator" content={Astro.generator} />
-        <title>Astro Basics</title>
+        <title>{title}</title>
     </head>
     <body>
+        <Header />
         <slot />
     </body>
 </html>
