@@ -1,0 +1,65 @@
+---
+const { category, nameCategory, img, view } = Astro.props;
+---
+
+<section
+    class="group flex flex-col backdrop-blur-3xl items-start rounded-3xl bg-gradient-to-br from-white/95 to-gray-100/90 border border-gray-200/50 p-8 w-full max-w-[480px] gap-y-6 shadow-2xl shadow-black/30 transition-all duration-500 hover:shadow-3xl hover:shadow-primary/30 hover:bg-gradient-to-br hover:from-white hover:to-gray-50"
+>
+    <header class="flex flex-col items-start text-left space-y-2 w-full">
+        <p
+            class="uppercase text-gray-600 font-light text-xs tracking-[0.2em] transition-colors duration-300 group-hover:text-gray-800"
+        >
+            {category}
+        </p>
+        <h2
+            class="uppercase text-zafiro-claro font-extrabold text-3xl lg:text-4xl tracking-tight transition-colors duration-300 group-hover:text-zafiro"
+        >
+            {nameCategory}
+        </h2>
+    </header>
+
+    <div
+        class="relative w-full overflow-hidden rounded-2xl shadow-xl shadow-black/40 border border-gray-200/30 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-primary/20"
+    >
+        <img
+            class="w-full h-auto object-cover transition-all duration-700 group-hover:scale-110 filter brightness-110 contrast-125 group-hover:brightness-100 group-hover:contrast-110"
+            src={img}
+            alt={nameCategory}
+            loading="lazy"
+        />
+        <div
+            class="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        >
+        </div>
+    </div>
+
+    <a
+        class="group/button relative inline-flex items-center justify-center gap-3 px-8 py-4 text-white text-base font-medium bg-gradient-to-r from-primary to-primary/80 rounded-xl shadow-lg shadow-primary/30 transition-all duration-300 hover:from-primary/90 hover:to-primary hover:shadow-xl hover:shadow-primary/50 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-white active:translate-y-0 overflow-hidden min-w-[160px]"
+        href="/"
+    >
+        <span
+            class="relative z-10 transition-colors duration-300 group-hover/button:text-white"
+        >
+            {view}
+        </span>
+
+        <svg
+            class="relative z-10 w-5 h-5 transition-all duration-300 group-hover/button:translate-x-1 group-hover/button:text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
+
+        <div
+            class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] transition-transform duration-700 group-hover/button:translate-x-[100%]"
+        >
+        </div>
+    </a>
+</section>
