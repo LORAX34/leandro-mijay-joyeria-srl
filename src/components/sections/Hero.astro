@@ -1,7 +1,42 @@
 ---
-
+import Whatsapp from "../icons/Whatsapp.astro";
 ---
 
-<section class="flex ralative animate-fade-in animate-delay-250">
-    <img class="w-screen" src="/banner1-768x432.png" alt="" />
+<section
+    class="relative flex min-h-screen items-center justify-center overflow-hidden"
+>
+    <img
+        class="w-full h-full object-cover absolute inset-0"
+        src="/Hero.webp"
+        alt="Imagen de fondo de Leandro Mijay Joyería"
+    />
+
+    <!-- Overlay para mejorar legibilidad -->
+    <div class="absolute inset-0 bg-black/30"></div>
+
+    <div
+        class="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-8 w-full max-w-6xl mx-auto"
+    >
+        <h1
+            class="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 md:mb-6 mt-[-10%] md:mt-[-15%] tracking-wide"
+        >
+            Leandro & Mijail<br />Joyería
+        </h1>
+
+        <p
+            class="text-xl md:text-3xl lg:text-4xl text-silver-ligth font-medium mb-8 md:mb-12 max-w-2xl mx-auto px-4 drop-shadow-md"
+        >
+            La joyería preferida por los famosos y la farándula
+        </p>
+
+        <a
+            href="https://wa.me/53845611"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-white rounded-full backdrop-blur-md shadow-lg px-6 py-3 gap-3 text-blue-900 flex flex-row items-center justify-center hover:scale-105 transition-transform duration-300 font-semibold text-lg"
+        >
+            <Whatsapp class="w-6 h-6" />
+            Contactar
+        </a>
+    </div>
 </section>
