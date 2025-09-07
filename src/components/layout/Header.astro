@@ -1,157 +1,329 @@
 ---
 import Logo from "@/components/icons/Logo.astro";
+import Close from "@/components/icons/Close.astro";
+import Home from "@/components/icons/Home.astro";
+import Catalog from "@/components/icons/Catalog.astro";
+import Blog from "@/components/icons/Blog.astro";
+import Contact from "@/components/icons/Contact.astro";
 ---
 
-<section
-    class="animate-fade-in animate-delay-250 relative bg-primary rounded-b-3xl flex items-center justify-between p-4 md:p-6"
+<header
+    class="fixed top-0 left-0 right-0 bg-primary flex items-center justify-between p-4 md:p-6 z-50 shadow-lg backdrop-blur-md animate-fade-in animate-delay-250"
 >
-    <!-- Logo mejorado -->
-    <div class="p-1 md:p-2 flex items-center">
+    <!-- Logo -->
+    <div class="flex items-center">
         <Logo
             class="w-32 h-10 md:w-40 md:h-12 lg:w-48 lg:h-14 transition-all duration-300"
         />
     </div>
 
-    <!-- Botón de menú hamburguesa (solo móvil) -->
-    <button
-        id="mobile-menu-button"
-        class="md:hidden flex flex-col justify-center items-center w-10 h-10 p-2 space-y-1.5 rounded text-silver-ligth hover:text-silver focus:outline-none"
-        aria-label="Abrir menú"
-    >
-        <span
-            class="block w-6 h-0.5 bg-current transition-transform duration-300"
-        ></span>
-        <span class="block w-6 h-0.5 bg-current transition-opacity duration-300"
-        ></span>
-        <span
-            class="block w-6 h-0.5 bg-current transition-transform duration-300"
-        ></span>
-    </button>
-
-    <!-- Navegación (escritorio) -->
+    <!-- Navegación Desktop -->
     <nav
-        class="hidden md:flex bg-white/10 justify-center items-center p-2 gap-6 lg:gap-8 border border-white/20 rounded-full backdrop-blur-md"
-        aria-label="Navegación principal"
+        class="hidden md:flex bg-white/10 items-center px-4 py-2 gap-6 lg:gap-8 border border-white/20 rounded-full backdrop-blur-md"
     >
         <a
-            class="text-silver-ligth font-semibold hover:text-silver transition-colors duration-200 px-2 py-1"
-            >Home</a
+            href="/"
+            class="text-silver-ligth font-semibold hover:text-silver transition-colors duration-200 px-3 py-2 rounded-full hover:bg-white/10"
         >
+            Home
+        </a>
         <a
-            class="text-silver-ligth font-semibold hover:text-silver transition-colors duration-200 px-2 py-1"
-            >Catalogo</a
+            href="/catalogo"
+            class="text-silver-ligth font-semibold hover:text-silver transition-colors duration-200 px-3 py-2 rounded-full hover:bg-white/10"
         >
+            Catálogo
+        </a>
         <a
-            class="text-silver-ligth font-semibold hover:text-silver transition-colors duration-200 px-2 py-1"
-            >Blog</a
+            href="/blog"
+            class="text-silver-ligth font-semibold hover:text-silver transition-colors duration-200 px-3 py-2 rounded-full hover:bg-white/10"
         >
+            Blog
+        </a>
         <a
-            class="text-silver-ligth font-semibold hover:text-silver transition-colors duration-200 px-2 py-1"
-            >Contacto</a
+            href="/contacto"
+            class="text-silver-ligth font-semibold hover:text-silver transition-colors duration-200 px-3 py-2 rounded-full hover:bg-white/10"
         >
+            Contacto
+        </a>
     </nav>
 
-    <!-- Menú móvil (oculto por defecto) -->
-    <div
-        id="mobile-menu"
-        class="hidden absolute top-full left-0 right-0 bg-primary/95 border-t border-white/20 md:hidden z-50 rounded-b-2xl shadow-lg"
+    <!-- Botón Hamburguesa -->
+    <button
+        id="mobile-menu-button"
+        class="md:hidden flex flex-col justify-center items-center w-12 h-12 space-y-1.5 rounded-lg text-silver-ligth hover:text-silver focus:outline-none focus:ring-2 focus:ring-silver/50 transition-all duration-300 z-50"
+        aria-label="Abrir menú"
+        aria-expanded="false"
     >
-        <div class="flex flex-col p-4 space-y-3">
-            <a
-                class="text-silver-ligth font-semibold hover:text-silver transition-colors duration-200 py-3 px-4 rounded-lg hover:bg-white/5"
-                >Home</a
-            >
-            <a
-                class="text-silver-ligth font-semibold hover:text-silver transition-colors duration-200 py-3 px-4 rounded-lg hover:bg-white/5"
-                >Catalogo</a
-            >
-            <a
-                class="text-silver-ligth font-semibold hover:text-silver transition-colors duration-200 py-3 px-4 rounded-lg hover:bg-white/5"
-                >Blog</a
-            >
-            <a
-                class="text-silver-ligth font-semibold hover:text-silver transition-colors duration-200 py-3 px-4 rounded-lg hover:bg-white/5"
-                >Contacto</a
-            >
+        <span
+            class="hamburger-line block w-6 h-0.5 bg-current transition-all duration-300"
+        ></span>
+        <span
+            class="hamburger-line block w-6 h-0.5 bg-current transition-all duration-300"
+        ></span>
+        <span
+            class="hamburger-line block w-6 h-0.5 bg-current transition-all duration-300"
+        ></span>
+    </button>
+</header>
+
+<!-- Overlay del Menú Móvil -->
+<div
+    id="mobile-menu-overlay"
+    class="fixed inset-0 bg-primary/80 backdrop-blur-sm z-40 opacity-0 invisible transition-all duration-300 md:hidden"
+>
+</div>
+
+<!-- Menú Móvil -->
+<aside
+    id="mobile-menu"
+    class="fixed top-0 right-0 h-full w-full sm:w-80 sm:max-w-[85vw] bg-primary/95 backdrop-blur-md border-l border-silver/20 z-50 transform translate-x-full transition-all duration-300 ease-in-out md:hidden shadow-2xl"
+>
+    <!-- Header del Menú -->
+    <div
+        class="flex items-center justify-between p-4 border-b border-silver/20"
+    >
+        <h2 class="text-silver-ligth font-semibold text-lg">Menú</h2>
+        <button
+            id="mobile-menu-close"
+            class="flex items-center justify-center w-10 h-10 rounded-full text-silver-ligth hover:text-silver hover:bg-white/10 transition-all duration-200"
+            aria-label="Cerrar menú"
+        >
+            <Close class="w-6 h-6" />
+        </button>
+    </div>
+
+    <!-- Enlaces del Menú -->
+    <nav class="flex flex-col p-4 space-y-2">
+        <a
+            href="/"
+            class="mobile-nav-link text-silver-ligth font-semibold hover:text-silver transition-all duration-200 py-4 px-4 rounded-xl hover:bg-white/10 flex items-center space-x-3 group"
+        >
+            <Home
+                class="w-5 h-5 transition-transform duration-200 group-hover:scale-110"
+            />
+            <span>Home</span>
+        </a>
+        <a
+            href="/catalogo"
+            class="mobile-nav-link text-silver-ligth font-semibold hover:text-silver transition-all duration-200 py-4 px-4 rounded-xl hover:bg-white/10 flex items-center space-x-3 group"
+        >
+            <Catalog
+                class="w-5 h-5 transition-transform duration-200 group-hover:scale-110"
+            />
+            <span>Catálogo</span>
+        </a>
+        <a
+            href="/blog"
+            class="mobile-nav-link text-silver-ligth font-semibold hover:text-silver transition-all duration-200 py-4 px-4 rounded-xl hover:bg-white/10 flex items-center space-x-3 group"
+        >
+            <Blog
+                class="w-5 h-5 transition-transform duration-200 group-hover:scale-110"
+            />
+            <span>Blog</span>
+        </a>
+        <a
+            href="/contacto"
+            class="mobile-nav-link text-silver-ligth font-semibold hover:text-silver transition-all duration-200 py-4 px-4 rounded-xl hover:bg-white/10 flex items-center space-x-3 group"
+        >
+            <Contact
+                class="w-5 h-5 transition-transform duration-200 group-hover:scale-110"
+            />
+            <span>Contacto</span>
+        </a>
+    </nav>
+
+    <!-- Footer del Menú -->
+    <div
+        class="absolute bottom-0 left-0 right-0 p-4 border-t border-silver/20 bg-primary/90"
+    >
+        <div class="text-center">
+            <p class="text-silver-ligth/70 text-sm">
+                Leandro Mijay Joyería SRL
+            </p>
         </div>
     </div>
-</section>
+</aside>
 
 <script>
-    // Toggle del menú móvil
-    document.addEventListener("DOMContentLoaded", () => {
-        const menuButton = document.getElementById("mobile-menu-button");
-        const mobileMenu = document.getElementById("mobile-menu");
+    // Variables
+    let isMenuOpen = false;
+    let menuButton: HTMLButtonElement | null = null;
+    let mobileMenu: HTMLElement | null = null;
+    let mobileMenuOverlay: HTMLElement | null = null;
+    let closeButton: HTMLButtonElement | null = null;
 
+    // Inicialización
+    document.addEventListener("DOMContentLoaded", () => {
+        menuButton = document.getElementById(
+            "mobile-menu-button",
+        ) as HTMLButtonElement;
+        mobileMenu = document.getElementById("mobile-menu");
+        mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
+        closeButton = document.getElementById(
+            "mobile-menu-close",
+        ) as HTMLButtonElement;
+
+        if (!menuButton || !mobileMenu || !mobileMenuOverlay || !closeButton)
+            return;
+
+        // Función para abrir menú
+        const openMenu = () => {
+            if (isMenuOpen) return;
+
+            isMenuOpen = true;
+            document.body.style.overflow = "hidden";
+
+            // Mostrar overlay
+            mobileMenuOverlay.classList.remove("invisible", "opacity-0");
+            mobileMenuOverlay.classList.add("visible", "opacity-100");
+
+            // Mostrar menú
+            mobileMenu.classList.remove("translate-x-full");
+            mobileMenu.classList.add("translate-x-0");
+
+            // Animar hamburguesa a X
+            const lines = menuButton.querySelectorAll(".hamburger-line");
+            lines[0].style.transform = "translateY(8px) rotate(45deg)";
+            lines[1].style.opacity = "0";
+            lines[2].style.transform = "translateY(-8px) rotate(-45deg)";
+
+            menuButton.setAttribute("aria-label", "Cerrar menú");
+            menuButton.setAttribute("aria-expanded", "true");
+
+            // Animación de entrada de enlaces
+            const navLinks = mobileMenu.querySelectorAll(".mobile-nav-link");
+            navLinks.forEach((link, index) => {
+                const linkElement = link as HTMLElement;
+                linkElement.style.opacity = "0";
+                linkElement.style.transform = "translateX(20px)";
+                setTimeout(
+                    () => {
+                        linkElement.style.transition = "all 0.3s ease";
+                        linkElement.style.opacity = "1";
+                        linkElement.style.transform = "translateX(0)";
+                    },
+                    100 + index * 50,
+                );
+            });
+        };
+
+        // Función para cerrar menú
+        const closeMenu = () => {
+            if (!isMenuOpen) return;
+
+            isMenuOpen = false;
+            document.body.style.overflow = "";
+
+            // Ocultar overlay
+            mobileMenuOverlay.classList.remove("visible", "opacity-100");
+            mobileMenuOverlay.classList.add("invisible", "opacity-0");
+
+            // Ocultar menú
+            mobileMenu.classList.remove("translate-x-0");
+            mobileMenu.classList.add("translate-x-full");
+
+            // Restaurar hamburguesa
+            const lines = menuButton.querySelectorAll(".hamburger-line");
+            lines[0].style.transform = "";
+            lines[1].style.opacity = "";
+            lines[2].style.transform = "";
+
+            menuButton.setAttribute("aria-label", "Abrir menú");
+            menuButton.setAttribute("aria-expanded", "false");
+
+            // Reset animaciones
+            const navLinks = mobileMenu.querySelectorAll(".mobile-nav-link");
+            navLinks.forEach((link) => {
+                const linkElement = link as HTMLElement;
+                linkElement.style.opacity = "";
+                linkElement.style.transform = "";
+                linkElement.style.transition = "";
+            });
+        };
+
+        // Event listeners
         menuButton.addEventListener("click", (e) => {
             e.stopPropagation();
-            mobileMenu.classList.toggle("hidden");
+            isMenuOpen ? closeMenu() : openMenu();
+        });
 
-            // Animación del botón hamburguesa a X
-            const spans = menuButton.querySelectorAll("span");
-            if (!mobileMenu.classList.contains("hidden")) {
-                spans[0].style.transform = "translateY(6px) rotate(45deg)";
-                spans[1].style.opacity = "0";
-                spans[2].style.transform = "translateY(-6px) rotate(-45deg)";
-                menuButton.setAttribute("aria-label", "Cerrar menú");
-            } else {
-                spans[0].style.transform = "";
-                spans[1].style.opacity = "";
-                spans[2].style.transform = "";
-                menuButton.setAttribute("aria-label", "Abrir menú");
+        closeButton.addEventListener("click", closeMenu);
+        mobileMenuOverlay.addEventListener("click", closeMenu);
+
+        // Cerrar menú al hacer clic en enlaces
+        const navLinks = mobileMenu.querySelectorAll(".mobile-nav-link");
+        navLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+                setTimeout(closeMenu, 150);
+            });
+        });
+
+        // Cerrar con ESC
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && isMenuOpen) {
+                closeMenu();
             }
         });
 
-        // Cerrar menú al hacer clic fuera de él
-        document.addEventListener("click", (e) => {
-            if (
-                !menuButton.contains(e.target) &&
-                !mobileMenu.contains(e.target) &&
-                !mobileMenu.classList.contains("hidden")
-            ) {
-                mobileMenu.classList.add("hidden");
-                const spans = menuButton.querySelectorAll("span");
-                spans[0].style.transform = "";
-                spans[1].style.opacity = "";
-                spans[2].style.transform = "";
-                menuButton.setAttribute("aria-label", "Abrir menú");
-            }
-        });
-
-        // Prevenir que el menú se cierre al hacer clic dentro de él
-        mobileMenu.addEventListener("click", (e) => {
-            e.stopPropagation();
-        });
+        // Prevenir scroll en menú móvil
+        mobileMenu.addEventListener(
+            "touchmove",
+            (e) => {
+                if (mobileMenu.scrollHeight <= mobileMenu.clientHeight) {
+                    e.preventDefault();
+                }
+            },
+            { passive: false },
+        );
     });
 </script>
 
 <style>
-    /* Estilos para la animación del menú móvil */
-    #mobile-menu {
-        transition:
-            opacity 0.3s ease,
-            transform 0.3s ease;
+    /* Animación de líneas del hamburguesa */
+    .hamburger-line {
+        transform-origin: center;
     }
 
-    #mobile-menu:not(.hidden) {
-        animation: slideDown 0.3s ease forwards;
+    /* Efecto hover en enlaces móviles */
+    .mobile-nav-link {
+        position: relative;
+        overflow: hidden;
     }
 
-    @keyframes slideDown {
-        from {
-            opacity: 0;
-            transform: translateY(-10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    .mobile-nav-link::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 0;
+        background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.05)
+        );
+        transition: width 0.3s ease;
+        border-radius: inherit;
     }
 
-    @media (max-width: 768px) {
+    .mobile-nav-link:hover::before {
+        width: 100%;
+    }
+
+    /* Responsividad mejorada */
+    @media (max-width: 640px) {
         #mobile-menu {
-            max-height: calc(100vh - 80px);
-            overflow-y: auto;
+            width: 100vw !important;
+            max-width: 100vw !important;
+        }
+    }
+
+    /* Reducir animaciones si el usuario prefiere */
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
         }
     }
 </style>

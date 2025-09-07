@@ -2,6 +2,7 @@
 @plugin "@midudev/tailwind-animations";
 
 @theme {
+    /* Colores principales */
     --color-zafiro: #082567;
     --color-zafiro-claro: #04339e;
     --color-primary: #1a1919;
@@ -10,4 +11,81 @@
     --color-gold-light: #ffd13e;
     --color-silver: #c0c0c0;
     --color-silver-ligth: #e8e8e8;
+
+    /* Configuración de colores para Tailwind */
+    --color-white: #e8e8e8; /* Usar silver-light en lugar de blanco puro */
+    --color-black: #1a1919; /* Usar primary en lugar de negro puro */
+}
+
+/* Estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Onest Variable", sans-serif;
+    background-color: theme(colors.primary);
+    color: theme(colors.silver-ligth);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Utilidades personalizadas */
+.text-balance {
+    text-wrap: balance;
+}
+
+.text-pretty {
+    text-wrap: pretty;
+}
+
+/* Mejoras en los scrollbars */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: theme(colors.primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: theme(colors.silver);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: theme(colors.silver-ligth);
+}
+
+/* Focus visible mejorado */
+:focus-visible {
+    outline: 2px solid theme(colors.gold-light);
+    outline-offset: 2px;
+}
+
+/* Animaciones suaves para elementos interactivos */
+a,
+button,
+input,
+textarea,
+select {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Mejoras en la selección de texto */
+::selection {
+    background-color: theme(colors.gold-light);
+    color: theme(colors.primary);
+}
+
+::-moz-selection {
+    background-color: theme(colors.gold-light);
+    color: theme(colors.primary);
 }
