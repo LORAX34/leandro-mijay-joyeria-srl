@@ -1,5 +1,5 @@
 ---
-const { category, nameCategory, img, view } = Astro.props;
+const { category, nameCategory, img, view, href } = Astro.props;
 ---
 
 <section
@@ -35,7 +35,7 @@ const { category, nameCategory, img, view } = Astro.props;
 
     <a
         class="group/button relative inline-flex items-center justify-center gap-3 px-8 py-4 text-white text-base font-medium bg-gradient-to-r from-primary to-primary/80 rounded-xl shadow-lg shadow-primary/30 transition-all duration-300 hover:from-primary/90 hover:to-primary hover:shadow-xl hover:shadow-primary/50 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-white active:translate-y-0 overflow-hidden min-w-[160px]"
-        href="/"
+        href={href}
     >
         <span
             class="relative z-10 transition-colors duration-300 group-hover/button:text-white"

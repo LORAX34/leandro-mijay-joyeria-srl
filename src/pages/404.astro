@@ -1,0 +1,218 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Home from "@/components/icons/Home.astro";
+import Diamante from "@/components/icons/Diamante.astro";
+---
+
+<Layout
+    title="Página no encontrada - Leandro & Mijail Joyería"
+    showHeader={false}
+    showFooter={false}
+>
+    <section
+        class="relative min-h-screen flex items-center justify-center overflow-hidden
+               bg-gradient-to-br from-primary via-primary/95 to-primary/90"
+    >
+        <!-- Elementos decorativos de fondo -->
+        <div class="absolute inset-0 pointer-events-none">
+            <!-- Gradientes decorativos -->
+            <div
+                class="absolute top-1/4 left-1/4 w-96 h-96
+                       bg-gold-light/10 rounded-full blur-3xl
+                       animate-pulse animate-duration-[6s]"
+            >
+            </div>
+            <div
+                class="absolute bottom-1/4 right-1/4 w-80 h-80
+                       bg-silver/8 rounded-full blur-3xl
+                       animate-pulse animate-duration-[4s] animate-delay-1000"
+            >
+            </div>
+            <div
+                class="absolute top-1/2 right-1/3 w-64 h-64
+                       bg-gold/5 rounded-full blur-2xl
+                       animate-pulse animate-duration-[5s] animate-delay-2000"
+            >
+            </div>
+        </div>
+
+        <div
+            class="relative z-10 max-w-4xl mx-auto px-4 text-center
+                   fade-in-up animate-duration-1000"
+        >
+            <!-- Número 404 grande -->
+            <div class="mb-8">
+                <h1
+                    class="text-8xl md:text-9xl lg:text-[12rem] font-bold
+                           text-transparent bg-gradient-to-r from-gold via-gold-light to-gold
+                           bg-clip-text leading-none tracking-tight
+                           fade-in-up animate-duration-1000 animate-delay-200"
+                >
+                    404
+                </h1>
+            </div>
+
+            <!-- Mensaje principal -->
+            <div
+                class="mb-12 fade-in-up animate-duration-1000 animate-delay-600"
+            >
+                <h2
+                    class="text-3xl md:text-4xl lg:text-5xl font-bold text-silver-ligth mb-4
+                           tracking-tight"
+                >
+                    Página no encontrada
+                </h2>
+                <p
+                    class="text-lg md:text-xl text-silver/80 font-light max-w-2xl mx-auto
+                           leading-relaxed"
+                >
+                    La joya que buscas no se encuentra en esta ubicación. Te
+                    invitamos a explorar nuestra colección de piezas únicas y
+                    exclusivas.
+                </p>
+            </div>
+
+            <!-- Línea decorativa -->
+            <div
+                class="flex justify-center items-center gap-4 mb-12
+                       fade-in-up animate-duration-1000 animate-delay-800"
+            >
+                <div
+                    class="h-px bg-gradient-to-r from-transparent via-gold-light to-transparent
+                           w-16 md:w-24"
+                >
+                </div>
+                <div
+                    class="w-3 h-3 bg-gold-light rounded-full
+                           animate-pulse animate-duration-[2s]"
+                >
+                </div>
+                <div
+                    class="h-px bg-gradient-to-r from-transparent via-gold-light to-transparent
+                           w-16 md:w-24"
+                >
+                </div>
+            </div>
+
+            <!-- Botones de acción -->
+            <div
+                class="flex flex-col sm:flex-row gap-4 justify-center items-center
+                       fade-in-up animate-duration-1000 animate-delay-1000"
+            >
+                <!-- Botón principal - Volver al inicio -->
+                <a
+                    href="/"
+                    class="group relative inline-flex items-center justify-center gap-3
+                           px-8 py-4 bg-gradient-to-r from-gold to-gold-light
+                           text-primary font-semibold text-lg rounded-xl
+                           shadow-lg shadow-gold/30
+                           hover:shadow-xl hover:shadow-gold/50
+                           hover:scale-105 hover:-translate-y-1
+                           transition-all duration-300
+                           focus:outline-none focus:ring-2 focus:ring-gold/50 focus:ring-offset-2
+                           active:scale-100 active:translate-y-0
+                           overflow-hidden min-w-[200px]"
+                >
+                    <Home
+                        class="w-5 h-5 transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <span>Ir al Inicio</span>
+
+                    <!-- Efecto de brillo -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/25 to-white/0
+                               translate-x-[-100%] transition-transform duration-700
+                               group-hover:translate-x-[100%]"
+                    >
+                    </div>
+                </a>
+
+                <!-- Botón secundario - Ver catálogo -->
+                <a
+                    href="/catalogo"
+                    class="group inline-flex items-center justify-center gap-3
+                           px-8 py-4 bg-white/5 backdrop-blur-sm
+                           border border-silver/20 text-silver-ligth font-medium text-lg
+                           rounded-xl hover:bg-white/10 hover:border-silver/30
+                           hover:text-white hover:scale-105
+                           transition-all duration-300
+                           focus:outline-none focus:ring-2 focus:ring-silver/30 focus:ring-offset-2
+                           min-w-[200px]"
+                >
+                    <Diamante
+                        class="w-5 h-5 transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <span>Ver Catálogo</span>
+                </a>
+            </div>
+
+            <!-- Mensaje adicional -->
+            <div
+                class="mt-16 fade-in-up animate-duration-1000 animate-delay-1200"
+            >
+                <p
+                    class="text-silver/60 text-sm md:text-base font-light italic
+                           max-w-xl mx-auto"
+                >
+                    "Cada pieza perdida nos lleva a descubrir nuevas joyas.
+                    Explora nuestra colección y encuentra tu siguiente tesoro."
+                </p>
+            </div>
+        </div>
+
+        <!-- Efectos de partículas decorativas -->
+        <div class="absolute inset-0 pointer-events-none overflow-hidden">
+            <div
+                class="absolute top-20 left-10 w-2 h-2 bg-gold-light/30 rounded-full
+                       animate-pulse animate-duration-[4s] animate-delay-500"
+            >
+            </div>
+            <div
+                class="absolute top-1/3 right-20 w-1 h-1 bg-silver/40 rounded-full
+                       animate-pulse animate-duration-[3s] animate-delay-1500"
+            >
+            </div>
+            <div
+                class="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-gold/30 rounded-full
+                       animate-pulse animate-duration-[5s] animate-delay-2500"
+            >
+            </div>
+            <div
+                class="absolute bottom-20 right-10 w-2 h-2 bg-silver-ligth/20 rounded-full
+                       animate-pulse animate-duration-[6s] animate-delay-3000"
+            >
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    /* Efecto adicional para el número 404 */
+    @keyframes float {
+        0%,
+        100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    h1 {
+        animation: float 4s ease-in-out infinite;
+    }
+
+    /* Mejora la accesibilidad en móviles */
+    @media (max-width: 640px) {
+        h1 {
+            font-size: 6rem;
+        }
+    }
+
+    /* Mejora los efectos hover en dispositivos táctiles */
+    @media (hover: none) {
+        .group:hover {
+            transform: scale(1.02);
+        }
+    }
+</style>
