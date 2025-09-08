@@ -1,0 +1,76 @@
+---
+const { title, texto, colorIcon = "text-gold-light" } = Astro.props;
+---
+
+<article
+    class="group relative flex flex-col items-center text-start p-6 md:p-8 h-full min-h-[300px] md:min-h-[350px] justify-between
+           bg-gradient-to-br from-white/[0.02] to-white/[0.08]
+           backdrop-blur-sm border border-white/10 rounded-2xl
+           hover:bg-gradient-to-br hover:from-white/[0.05] hover:to-white/[0.12]
+           hover:border-white/20 hover:shadow-2xl hover:shadow-gold/10
+           transition-all duration-500 ease-out
+           fade-in-up animate-duration-700 animate-delay-200
+           hover:scale-[1.02] hover:-translate-y-1"
+>
+    <!-- Efecto de brillo en hover -->
+    <div
+        class="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100
+               bg-gradient-to-br from-gold-light/5 via-transparent to-silver/5
+               transition-opacity duration-500 pointer-events-none"
+    >
+    </div>
+
+    <!-- Contenedor del ícono -->
+    <div
+        class={`relative mb-6 ${colorIcon} group-hover:scale-110
+                transition-all duration-300 ease-out flex-shrink-0 z-10
+                drop-shadow-lg group-hover:drop-shadow-xl`}
+    >
+        <div class="relative">
+            <slot />
+            <!-- Efecto de resplandor detrás del ícono -->
+            <div
+                class="absolute inset-0 blur-xl opacity-0 group-hover:opacity-30
+                       bg-current transition-opacity duration-500 -z-10"
+            >
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor del contenido de texto -->
+    <div class="flex-grow flex flex-col justify-center z-10 space-y-4">
+        <h3
+            class="text-silver-light text-base md:text-lg lg:text-xl
+                   font-bold uppercase tracking-wide leading-tight
+                   px-2 transition-colors duration-300
+                   group-hover:text-white
+                   text-center
+                   bg-gradient-to-r from-silver-light to-white bg-clip-text"
+        >
+            {title}
+        </h3>
+
+        <div
+            class="w-12 h-0.5 bg-gold-light mx-auto rounded-full
+                    transition-all duration-300 group-hover:w-16 group-hover:bg-gold"
+        >
+        </div>
+
+        <p
+            class="text-silver/90 text-sm md:text-base
+                   font-light leading-relaxed px-2 max-w-[300px]
+                   transition-all duration-300 group-hover:text-silver-ligth
+                   group-hover:leading-loose"
+        >
+            {texto}
+        </p>
+    </div>
+
+    <!-- Decoración inferior -->
+    <div
+        class="absolute bottom-0 left-1/2 transform -translate-x-1/2
+                w-0 h-0.5 bg-gradient-to-r from-transparent via-gold-light to-transparent
+                transition-all duration-500 group-hover:w-full opacity-0 group-hover:opacity-60"
+    >
+    </div>
+</article>

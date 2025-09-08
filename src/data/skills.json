@@ -1,0 +1,40 @@
+{
+    "skills": [
+        {
+            "id": "calidad-superior",
+            "titulo_es": "Calidad Superior Garantizada",
+            "titulo_en": "Superior Quality Guaranteed",
+            "texto_es": "Fabricamos con materiales seleccionados y proveedores minuciosamente evaluados, garantizando la armonía perfecta entre durabilidad y estilo excepcional.",
+            "texto_en": "We manufacture with selected materials and meticulously evaluated suppliers, guaranteeing the perfect harmony between durability and exceptional style.",
+            "icono": "Diamante",
+            "color_icono": "text-gold-light",
+            "orden": 1
+        },
+        {
+            "id": "autenticidad-certificada",
+            "titulo_es": "Autenticidad Certificada",
+            "titulo_en": "Certified Authenticity",
+            "texto_es": "Cada joya cuenta con certificación de origen y valor, asegurando que tu inversión esté respaldada por la más alta calidad y procedencia ética.",
+            "texto_en": "Each jewel has origin and value certification, ensuring that your investment is backed by the highest quality and ethical provenance.",
+            "icono": "Pergamino",
+            "color_icono": "text-gold-light",
+            "orden": 2
+        },
+        {
+            "id": "compromiso-eterno",
+            "titulo_es": "Compromiso Eterno",
+            "titulo_en": "Eternal Commitment",
+            "texto_es": "Te acompañamos con servicio postventa excepcional y garantía extendida, para que disfrutes tu pieza con total tranquilidad y satisfacción.",
+            "texto_en": "We accompany you with exceptional after-sales service and extended warranty, so you can enjoy your piece with complete peace of mind and satisfaction.",
+            "icono": "Heart",
+            "color_icono": "text-gold-light",
+            "orden": 3
+        }
+    ],
+    "seccion": {
+        "titulo_es": "Nuestra Promesa de Excelencia",
+        "titulo_en": "Our Promise of Excellence",
+        "subtitulo_es": "Comprometidos con la perfección en cada detalle",
+        "subtitulo_en": "Committed to perfection in every detail"
+    }
+}

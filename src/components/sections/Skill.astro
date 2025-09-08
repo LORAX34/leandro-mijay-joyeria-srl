@@ -1,0 +1,131 @@
+---
+import ObjectSkill from "@/components/ObjectSkill.astro";
+import skillsData from "@/data/skills.json";
+
+import Diamante from "@/components/icons/Diamante.astro";
+import Pergamino from "@/components/icons/Pergamino.astro";
+import Heart from "@/components/icons/Heart.astro";
+
+const iconComponents = {
+    Diamante,
+    Pergamino,
+    Heart,
+};
+
+const { skills, seccion } = skillsData;
+---
+
+<section
+    class="relative py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8
+           bg-gradient-to-b from-primary/30 via-primary/50 to-primary/30
+           overflow-hidden"
+>
+    <div class="absolute inset-0 pointer-events-none">
+        <div
+            class="absolute top-0 left-0 w-full h-32
+                   bg-gradient-to-b from-primary to-transparent opacity-80"
+        >
+        </div>
+
+        <div
+            class="absolute bottom-0 left-0 w-full h-32
+                   bg-gradient-to-t from-primary to-transparent opacity-80"
+        >
+        </div>
+
+        <div
+            class="absolute top-1/4 left-1/4 w-96 h-96
+                   bg-gold-light/5 rounded-full blur-3xl
+                   animate-pulse animate-duration-[4s]"
+        >
+        </div>
+        <div
+            class="absolute bottom-1/4 right-1/4 w-80 h-80
+                   bg-silver/5 rounded-full blur-3xl
+                   animate-pulse animate-duration-[3s] animate-delay-1000"
+        >
+        </div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto z-10">
+        <header class="text-center mb-16 md:mb-20">
+            <h2
+                class="text-3xl md:text-4xl lg:text-5xl font-bold
+                       text-transparent bg-gradient-to-r from-silver-ligth via-white to-silver-ligth
+                       bg-clip-text mb-4 tracking-tight
+                       fade-in-up animate-duration-800"
+            >
+                {seccion.titulo_es}
+            </h2>
+
+            <p
+                class="text-silver/80 text-lg md:text-xl font-light max-w-2xl mx-auto mb-6
+                       fade-in-up animate-duration-800 animate-delay-200"
+            >
+                {seccion.subtitulo_es}
+            </p>
+
+            <!-- Línea decorativa animada -->
+            <div class="flex justify-center items-center space-x-4">
+                <div
+                    class="h-px bg-gradient-to-r from-transparent via-gold-light to-transparent
+                           w-16 md:w-24 fade-in animate-duration-1000 animate-delay-400"
+                >
+                </div>
+                <div
+                    class="w-2 h-2 bg-gold-light rounded-full
+                           fade-in animate-duration-1000 animate-delay-600
+                           animate-pulse animate-delay-1000"
+                >
+                </div>
+                <div
+                    class="h-px bg-gradient-to-r from-transparent via-gold-light to-transparent
+                           w-16 md:w-24 fade-in animate-duration-1000 animate-delay-400"
+                >
+                </div>
+            </div>
+        </header>
+
+        <!-- Grid de características -->
+        <div
+            class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 lg:gap-12
+                   items-stretch"
+        >
+            {
+                skills.map((skill, index) => {
+                    const IconComponent =
+                        iconComponents[
+                            skill.icono as keyof typeof iconComponents
+                        ];
+                    return (
+                        <div
+                            class="fade-in-up animate-duration-700"
+                            style={`animation-delay: ${(index + 2) * 200}ms`}
+                        >
+                            <ObjectSkill
+                                title={skill.titulo_es}
+                                texto={skill.texto_es}
+                                colorIcon={skill.color_icono}
+                            >
+                                <IconComponent class="w-14 h-14 md:w-16 md:h-16" />
+                            </ObjectSkill>
+                        </div>
+                    );
+                })
+            }
+        </div>
+
+        <!-- Texto de cierre opcional -->
+        <div
+            class="text-center mt-16 md:mt-20
+                   fade-in-up animate-duration-800 animate-delay-1000"
+        >
+            <p
+                class="text-silver/70 text-sm md:text-base font-light italic max-w-xl mx-auto"
+            >
+                Cada pieza es creada con dedicación artesanal y respaldada por
+                nuestra garantía de satisfacción
+            </p>
+        </div>
+    </div>
+</section>

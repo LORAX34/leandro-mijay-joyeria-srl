@@ -1,0 +1,76 @@
+{
+    "categorias": [
+        {
+            "categoria": "categoria",
+            "nombre_es": "Anillos",
+            "nombre_en": "Rings",
+            "imagen": "/Hero.webp",
+            "texto_ver_mas_es": "Ver mas",
+            "texto_ver_mas_en": "Discover our rings collection"
+        },
+        {
+            "categoria": "categoria",
+            "nombre_es": "Aretes",
+            "nombre_en": "Earrings",
+            "imagen": "/Hero.webp",
+            "texto_ver_mas_es": "Ver mas",
+            "texto_ver_mas_en": "Explore our earrings designs"
+        },
+        {
+            "categoria": "categoria",
+            "nombre_es": "Cadenas",
+            "nombre_en": "Chains",
+            "imagen": "/Hero.webp",
+            "texto_ver_mas_es": "Ver mas",
+            "texto_ver_mas_en": "Find the perfect chain"
+        },
+        {
+            "categoria": "categoria",
+            "nombre_es": "Charms",
+            "nombre_en": "Charms",
+            "imagen": "/Hero.webp",
+            "texto_ver_mas_es": "Ver mas",
+            "texto_ver_mas_en": "Customize with our charms"
+        },
+        {
+            "categoria": "categoria",
+            "nombre_es": "Conjuntos",
+            "nombre_en": "Sets",
+            "imagen": "/Hero.webp",
+            "texto_ver_mas_es": "Ver mas",
+            "texto_ver_mas_en": "Harmonious sets for special occasions"
+        },
+        {
+            "categoria": "categoria",
+            "nombre_es": "Dijes",
+            "nombre_en": "Pendants",
+            "imagen": "/Hero.webp",
+            "texto_ver_mas_es": "Ver mas",
+            "texto_ver_mas_en": "Pendants with special meaning"
+        },
+        {
+            "categoria": "categoria",
+            "nombre_es": "Personalizaciones",
+            "nombre_en": "Customizations",
+            "imagen": "/Hero.webp",
+            "texto_ver_mas_es": "Ver mas",
+            "texto_ver_mas_en": "We create unique jewelry for you"
+        },
+        {
+            "categoria": "categoria",
+            "nombre_es": "Pulsos",
+            "nombre_en": "Bracelets",
+            "imagen": "/Hero.webp",
+            "texto_ver_mas_es": "Ver mas",
+            "texto_ver_mas_en": "Bracelets that tell your story"
+        },
+        {
+            "categoria": "categoria",
+            "nombre_es": "Relojes",
+            "nombre_en": "Watches",
+            "imagen": "/Hero.webp",
+            "texto_ver_mas_es": "Ver mas",
+            "texto_ver_mas_en": "Elegance that marks every moment"
+        }
+    ]
+}
