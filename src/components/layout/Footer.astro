@@ -1,6 +1,5 @@
 ---
-import Facebook from "@/components/icons/Facebook.astro";
-import Instagram from "@/components/icons/Instagram.astro";
+
 ---
 
 <footer
@@ -8,9 +7,7 @@ import Instagram from "@/components/icons/Instagram.astro";
 >
     <div class="max-w-6xl mx-auto px-4 py-8 md:py-12">
         <!-- Contenido principal del footer -->
-        <div
-            class="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8"
-        >
+        <div class="flex flex-col items-center justify-center gap-6 md:gap-8">
             <!-- Copyright y nombre de la empresa -->
             <div class="text-center md:text-left">
                 <h3 class="text-xl md:text-2xl font-bold text-gold-light mb-2">
@@ -19,33 +16,6 @@ import Instagram from "@/components/icons/Instagram.astro";
                 <p class="text-silver-ligth/80 text-sm md:text-base">
                     La joyería preferida por los famosos y la farándula
                 </p>
-            </div>
-
-            <!-- Redes sociales -->
-            <div class="flex items-center gap-4">
-                <span class="text-silver-ligth/70 text-sm hidden sm:block">
-                    Síguenos:
-                </span>
-                <div class="flex gap-3">
-                    <a
-                        href="#"
-                        class="flex items-center justify-center w-12 h-12 bg-silver/10 hover:bg-gold-light/20 rounded-full text-silver-ligth hover:text-gold-light transition-all duration-300 hover:scale-110 group"
-                        aria-label="Síguenos en Facebook"
-                    >
-                        <Facebook
-                            class="w-6 h-6 transition-transform duration-300 group-hover:scale-110"
-                        />
-                    </a>
-                    <a
-                        href="#"
-                        class="flex items-center justify-center w-12 h-12 bg-silver/10 hover:bg-gold-light/20 rounded-full text-silver-ligth hover:text-gold-light transition-all duration-300 hover:scale-110 group"
-                        aria-label="Síguenos en Instagram"
-                    >
-                        <Instagram
-                            class="w-6 h-6 transition-transform duration-300 group-hover:scale-110"
-                        />
-                    </a>
-                </div>
             </div>
         </div>
 

@@ -1,0 +1,87 @@
+---
+interface Props {
+    nombre: string;
+    imagen: string;
+    texto: string;
+}
+
+const { nombre, imagen, texto } = Astro.props;
+---
+
+<div
+    class="flex-shrink-0 w-80 md:w-96
+           bg-gradient-to-br from-primary/80 to-primary/60
+           backdrop-blur-sm border border-silver/10
+           rounded-2xl p-6 md:p-8
+           shadow-2xl hover:shadow-gold-light/10
+           transition-all duration-500
+           hover:scale-105 hover:border-gold-light/20
+           group relative overflow-hidden"
+>
+    <!-- Efecto de brillo en hover -->
+    <div
+        class="absolute inset-0 bg-gradient-to-r from-transparent via-gold-light/5 to-transparent
+               opacity-0 group-hover:opacity-100 transition-opacity duration-500
+               translate-x-[-100%] group-hover:translate-x-[100%] group-hover:transition-transform group-hover:duration-1000"
+    >
+    </div>
+
+    <!-- Avatar y nombre -->
+    <div class="flex items-center mb-4">
+        <div class="relative">
+            <img
+                src={imagen}
+                alt={`Foto de ${nombre}`}
+                class="w-16 h-16 md:w-20 md:h-20 rounded-full
+                       border-2 border-gold-light/30 object-cover
+                       shadow-lg"
+                loading="lazy"
+            />
+            <div
+                class="absolute -top-1 -right-1 w-5 h-5
+                       bg-gold-light rounded-full
+                       animate-pulse animate-duration-2000"
+            >
+            </div>
+        </div>
+        <div class="ml-4">
+            <h3 class="font-semibold text-silver-ligth text-lg">
+                {nombre}
+            </h3>
+            <div class="flex text-gold-light text-sm">★★★★★</div>
+        </div>
+    </div>
+
+    <!-- Comillas decorativas -->
+    <div class="mb-3">
+        <span class="text-4xl text-gold-light/40 font-serif leading-none">
+            "
+        </span>
+    </div>
+
+    <!-- Contenido del comentario -->
+    <div class="relative">
+        <p
+            class="text-silver/90 text-sm md:text-base leading-relaxed
+                   font-light italic mb-4"
+        >
+            {texto}
+        </p>
+    </div>
+
+    <!-- Comilla de cierre -->
+    <div class="flex justify-end">
+        <span
+            class="text-4xl text-gold-light/40 font-serif leading-none transform rotate-180"
+        >
+            "
+        </span>
+    </div>
+
+    <!-- Decoración inferior -->
+    <div
+        class="absolute bottom-0 left-0 right-0 h-1
+               bg-gradient-to-r from-gold-light/0 via-gold-light/50 to-gold-light/0"
+    >
+    </div>
+</div>

@@ -1,0 +1,46 @@
+{
+    "comentarios": [
+        {
+            "id": 1,
+            "nombre": "Humberto",
+            "imagen": "/humberto.webp",
+            "texto": "Soy cliente desde hace mucho tiempo, y creo que este es un proyectazo. En Cuba no hay algo similar. Leandro y Mijail marcan una diferencia en el mercado de la joyería"
+        },
+        {
+            "id": 2,
+            "nombre": "Waldo",
+            "imagen": "/waldo.webp",
+            "texto": "Increíble disfrutar de la calidad con la prestan servicio estos muchachos. Desde los productos hasta la atención estoy súper complacido"
+        },
+        {
+            "id": 3,
+            "nombre": "Mede",
+            "imagen": "/mede.webp",
+            "texto": "Los duros en este negocio. Los recomiendo de si o si"
+        },
+        {
+            "id": 4,
+            "nombre": "Jasiel",
+            "imagen": "/jasiel.webp",
+            "texto": "Soy cliente recurrente y también se los he recomendado a muchas personas sobre todo a artistas que han pasado por el bar y buscan algo exclusivo y de calidad"
+        },
+        {
+            "id": 5,
+            "nombre": "Alex Duvall",
+            "imagen": "/alex-dubal-e1731098934879.webp",
+            "texto": "Si quieren tener lindas prendas, lo último tienen que llamar a estos muchachos….son los más duros ahora mismo"
+        },
+        {
+            "id": 6,
+            "nombre": "Yulien Oviedo",
+            "imagen": "/yulien-e1731099221680.webp",
+            "texto": "Gente..los grandes siempre andan con los grandes…por eso yo vengo aquí. No hay más na"
+        }
+    ],
+    "seccion": {
+        "titulo_es": "Lo que dicen nuestros clientes",
+        "titulo_en": "What our clients say",
+        "subtitulo_es": "Testimonios reales de quienes han confiado en nuestra calidad y servicio",
+        "subtitulo_en": "Real testimonials from those who have trusted our quality and service"
+    }
+}

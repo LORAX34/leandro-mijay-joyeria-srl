@@ -13,7 +13,7 @@
             "categoria": "categoria",
             "nombre_es": "Aretes",
             "nombre_en": "Earrings",
-            "imagen": "/Hero.webp",
+            "imagen": "/arete.webp",
             "texto_ver_mas_es": "Ver mas",
             "texto_ver_mas_en": "Explore our earrings designs",
             "url": "/catalogo/aretes"

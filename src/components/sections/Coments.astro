@@ -1,0 +1,201 @@
+---
+import CardComents from "@/components/CardComents.astro";
+import comentariosData from "@/data/comentarios.json";
+
+const { comentarios, seccion } = comentariosData;
+
+// Ordenar por id para mantener orden consistente
+const sortedComentarios = comentarios.sort((a, b) => a.id - b.id);
+
+// Duplicar comentarios para efecto infinito
+const infiniteComents = [...sortedComentarios, ...sortedComentarios];
+---
+
+<section
+    class="relative py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8
+           bg-gradient-to-b from-primary/20 via-primary/40 to-primary/20
+           overflow-hidden"
+>
+    <!-- Efectos de fondo -->
+    <div class="absolute inset-0 pointer-events-none">
+        <div
+            class="absolute top-0 left-0 w-full h-32
+                   bg-gradient-to-b from-primary to-transparent opacity-80"
+        >
+        </div>
+
+        <div
+            class="absolute bottom-0 left-0 w-full h-32
+                   bg-gradient-to-t from-primary to-transparent opacity-80"
+        >
+        </div>
+
+        <div
+            class="absolute top-1/3 right-1/4 w-96 h-96
+                   bg-gold-light/10 rounded-full blur-3xl
+                   animate-pulse animate-duration-[5s]"
+        >
+        </div>
+        <div
+            class="absolute bottom-1/3 left-1/4 w-80 h-80
+                   bg-silver/8 rounded-full blur-3xl
+                   animate-pulse animate-duration-[4s] animate-delay-2000"
+        >
+        </div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto z-10">
+        <!-- Encabezado -->
+        <header class="text-center mb-12 md:mb-16">
+            <h2
+                class="text-3xl md:text-4xl lg:text-5xl font-bold
+                       text-transparent bg-gradient-to-r from-silver-ligth via-white to-silver-ligth
+                       bg-clip-text mb-4 tracking-tight
+                       fade-in-up animate-duration-800"
+            >
+                {seccion.titulo_es}
+            </h2>
+
+            <p
+                class="text-silver/80 text-lg md:text-xl font-light max-w-2xl mx-auto mb-6
+                       fade-in-up animate-duration-800 animate-delay-200"
+            >
+                {seccion.subtitulo_es}
+            </p>
+
+            <!-- Línea decorativa -->
+            <div class="flex justify-center items-center space-x-4">
+                <div
+                    class="h-px bg-gradient-to-r from-transparent via-gold-light to-transparent
+                           w-16 md:w-24 fade-in animate-duration-1000 animate-delay-400"
+                >
+                </div>
+                <div
+                    class="w-2 h-2 bg-gold-light rounded-full
+                           fade-in animate-duration-1000 animate-delay-600
+                           animate-pulse animate-delay-1000"
+                >
+                </div>
+                <div
+                    class="h-px bg-gradient-to-r from-transparent via-gold-light to-transparent
+                           w-16 md:w-24 fade-in animate-duration-1000 animate-delay-400"
+                >
+                </div>
+            </div>
+        </header>
+
+        <!-- Contenedor de comentarios con scroll infinito -->
+        <div class="relative overflow-hidden">
+            <div
+                id="comments-slider"
+                class="flex gap-6 md:gap-8 py-4 animate-scroll-infinite"
+                style={`animation-duration: ${sortedComentarios.length * 4}s;`}
+            >
+                {
+                    infiniteComents.map((comentario) => (
+                        <CardComents
+                            nombre={comentario.nombre}
+                            imagen={comentario.imagen}
+                            texto={comentario.texto}
+                        />
+                    ))
+                }
+            </div>
+
+            <!-- Gradientes de fade en los bordes -->
+            <div
+                class="absolute left-0 top-0 bottom-0 w-16 md:w-24
+                       bg-gradient-to-r from-primary via-primary/80 to-transparent
+                       pointer-events-none z-10"
+            >
+            </div>
+            <div
+                class="absolute right-0 top-0 bottom-0 w-16 md:w-24
+                       bg-gradient-to-l from-primary via-primary/80 to-transparent
+                       pointer-events-none z-10"
+            >
+            </div>
+        </div>
+
+        <!-- Indicadores -->
+        <div class="flex justify-center mt-8 space-x-2">
+            {
+                sortedComentarios.map((_, index: number) => (
+                    <div
+                        class="w-2 h-2 rounded-full bg-silver/30
+                           hover:bg-gold-light/60 transition-colors duration-300 indicator"
+                        style={`animation: indicator-pulse ${sortedComentarios.length * 4}s infinite;
+                            animation-delay: ${index * 4}s;`}
+                    />
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<style>
+    @keyframes scroll-infinite {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    @keyframes indicator-pulse {
+        0%,
+        85%,
+        100% {
+            background-color: rgb(192, 192, 192, 0.3);
+        }
+        5%,
+        15% {
+            background-color: rgb(255, 209, 62, 0.8);
+            transform: scale(1.2);
+        }
+    }
+
+    .animate-scroll-infinite {
+        animation: scroll-infinite linear infinite;
+    }
+
+    .animate-scroll-infinite:hover {
+        animation-play-state: paused;
+    }
+
+    /* Mejorar la suavidad del scroll en dispositivos móviles */
+    #comments-slider {
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .animate-scroll-infinite {
+            animation-duration: calc(6 * 3s); /* Más rápido en móvil */
+        }
+    }
+</style>
+
+<script>
+    // Pausar animación en hover de cada card individual
+    document.addEventListener("DOMContentLoaded", () => {
+        const slider = document.getElementById("comments-slider");
+
+        if (slider) {
+            // Seleccionar todas las cards de comentarios
+            const commentCards = slider.querySelectorAll(".flex-shrink-0");
+
+            commentCards.forEach((card) => {
+                card.addEventListener("mouseenter", () => {
+                    slider.style.animationPlayState = "paused";
+                });
+
+                card.addEventListener("mouseleave", () => {
+                    slider.style.animationPlayState = "running";
+                });
+            });
+        }
+    });
+</script>

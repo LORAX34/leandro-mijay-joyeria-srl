@@ -1,0 +1,410 @@
+---
+import Facebook from "@/components/icons/Facebook.astro";
+import Instagram from "@/components/icons/Instagram.astro";
+import Phone from "@/components/icons/Phone.astro";
+import Whatsapp from "@/components/icons/Whatsapp.astro";
+import Location from "@/components/icons/Location.astro";
+---
+
+<section
+    class="relative py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8
+           bg-gradient-to-b from-primary/30 via-primary/50 to-primary/30
+           overflow-hidden"
+    id="contacto"
+>
+    <!-- Efectos de fondo -->
+    <div class="absolute inset-0 pointer-events-none">
+        <div
+            class="absolute top-0 left-0 w-full h-32
+                   bg-gradient-to-b from-primary to-transparent opacity-80"
+        >
+        </div>
+
+        <div
+            class="absolute bottom-0 left-0 w-full h-32
+                   bg-gradient-to-t from-primary to-transparent opacity-80"
+        >
+        </div>
+
+        <div
+            class="absolute top-1/4 right-1/4 w-96 h-96
+                   bg-gold-light/8 rounded-full blur-3xl
+                   animate-pulse animate-duration-[6s]"
+        >
+        </div>
+        <div
+            class="absolute bottom-1/3 left-1/5 w-80 h-80
+                   bg-silver/6 rounded-full blur-3xl
+                   animate-pulse animate-duration-[5s] animate-delay-1500"
+        >
+        </div>
+    </div>
+
+    <div class="relative max-w-5xl mx-auto z-10">
+        <!-- Encabezado -->
+        <header class="text-center mb-12 md:mb-16">
+            <h2
+                class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold
+                       text-transparent bg-gradient-to-r from-silver-ligth via-white to-silver-ligth
+                       bg-clip-text mb-8 tracking-tight
+                       fade-in-up animate-duration-800"
+            >
+                Visítanos y Conecta con Nosotros
+            </h2>
+        </header>
+
+        <!-- Imagen del local centrada -->
+        <div
+            class="text-center mb-12 fade-in-up animate-duration-1000 animate-delay-300"
+        >
+            <div
+                class="relative inline-block overflow-hidden rounded-3xl group max-w-5xl mx-auto w-full"
+            >
+                <img
+                    src="/Local.webp"
+                    alt="Interior de Leandro y Mijail Joyería"
+                    class="w-full h-80 sm:h-96 md:h-[28rem] lg:h-[32rem] xl:h-[40rem] object-cover
+                           transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                />
+
+                <!-- Overlay con efecto -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent
+                           opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                >
+                </div>
+
+                <!-- Efecto de brillo -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-transparent via-gold-light/10 to-transparent
+                           opacity-0 group-hover:opacity-100 transition-opacity duration-500
+                           translate-x-[-100%] group-hover:translate-x-[100%] group-hover:transition-transform group-hover:duration-1000"
+                >
+                </div>
+            </div>
+        </div>
+
+        <!-- Texto principal centrado -->
+        <div
+            class="text-center mb-12 max-w-3xl mx-auto fade-in-up animate-duration-1000 animate-delay-500"
+        >
+            <h3 class="text-2xl md:text-3xl font-bold text-silver-ligth mb-4">
+                Donde la Elegancia Cobra Vida
+            </h3>
+            <p
+                class="text-silver/90 text-base md:text-lg leading-relaxed font-light mb-8"
+            >
+                En <span class="text-gold-light font-medium"
+                    >Leandro y Mijail Joyería</span
+                >, cada pieza cuenta una historia única. Visita nuestro local y
+                descubre la colección más exclusiva de joyas artesanales en
+                Cuba.
+                <span class="text-gold-light"
+                    >Tu momento especial merece una joya extraordinaria.</span
+                >
+            </p>
+        </div>
+
+        <!-- Grid de información de contacto -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            <!-- Ubicación -->
+            <div
+                class="p-6 rounded-2xl bg-gradient-to-br from-primary/80 to-primary/60
+                       border border-silver/10 hover:border-gold-light/30
+                       transition-all duration-500 group shadow-xl hover:shadow-2xl
+                       hover:scale-105 text-center"
+            >
+                <div class="mb-4">
+                    <div
+                        class="inline-flex items-center justify-center w-16 h-16 rounded-full
+                               bg-gold-light/10 group-hover:bg-gold-light/20 transition-colors duration-300"
+                    >
+                        <Location class="w-8 h-8 text-gold-light" />
+                    </div>
+                </div>
+                <h4 class="font-semibold text-silver-ligth mb-3 text-lg">
+                    Nuestra Ubicación
+                </h4>
+                <p class="text-silver/80 text-sm leading-relaxed">
+                    Marcial Gómez, no. 15, entre Independencia y Joaquín de
+                    Agüero<br />
+                    <span class="text-gold-light font-medium"
+                        >Ciego de Ávila, Cuba</span
+                    >
+                </p>
+            </div>
+
+            <!-- Horarios -->
+            <div
+                class="p-6 rounded-2xl bg-gradient-to-br from-primary/80 to-primary/60
+                       border border-silver/10 hover:border-gold-light/30
+                       transition-all duration-500 group shadow-xl hover:shadow-2xl
+                       hover:scale-105 text-center"
+            >
+                <div class="mb-4">
+                    <div
+                        class="inline-flex items-center justify-center w-16 h-16 rounded-full
+                               bg-gold-light/10 group-hover:bg-gold-light/20 transition-colors duration-300"
+                    >
+                        <svg
+                            class="w-8 h-8 text-gold-light"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12,6 12,12 16,14"></polyline>
+                        </svg>
+                    </div>
+                </div>
+                <h4 class="font-semibold text-silver-ligth mb-3 text-lg">
+                    Horarios de Atención
+                </h4>
+                <div class="text-silver/80 text-sm space-y-2">
+                    <p>
+                        <span class="text-gold-light font-medium"
+                            >Lunes a Sábado:</span
+                        > 9:00 AM - 5:00 PM
+                    </p>
+                    <p>
+                        <span class="text-gold-light font-medium">Domingo:</span
+                        > 9:00 AM - 4:00 PM
+                    </p>
+                </div>
+            </div>
+
+            <!-- Teléfono -->
+            <a
+                href="tel:+53538456111"
+                class="p-6 rounded-2xl bg-gradient-to-br from-primary/80 to-primary/60
+                       border border-silver/10 hover:border-gold-light/30
+                       transition-all duration-500 group shadow-xl hover:shadow-2xl
+                       hover:scale-105 text-center block"
+            >
+                <div class="mb-4">
+                    <div
+                        class="inline-flex items-center justify-center w-16 h-16 rounded-full
+                               bg-gold-light/10 group-hover:bg-gold-light/20 transition-colors duration-300"
+                    >
+                        <Phone class="w-8 h-8 text-gold-light" />
+                    </div>
+                </div>
+                <h4 class="font-semibold text-silver-ligth mb-3 text-lg">
+                    Llámanos Ahora
+                </h4>
+                <p class="text-silver/80 text-sm font-medium">
+                    +53 538 456 111
+                </p>
+            </a>
+        </div>
+
+        <!-- WhatsApp destacado -->
+        <div class="text-center mb-12">
+            <a
+                href="https://wa.me/53538456111"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center space-x-4 px-8 py-4 rounded-2xl
+                       bg-gradient-to-r from-green-600/80 to-green-700/80
+                       border-2 border-green-500/40 hover:border-green-400/60
+                       transition-all duration-300 group hover:scale-105 shadow-2xl hover:shadow-green-500/20"
+            >
+                <div
+                    class="flex-shrink-0 w-12 h-12 rounded-full bg-green-500/20
+                           flex items-center justify-center group-hover:bg-green-500/30
+                           transition-colors duration-300"
+                >
+                    <Whatsapp class="w-6 h-6 text-green-300" />
+                </div>
+                <div class="text-left">
+                    <h4 class="font-bold text-white text-lg">WhatsApp</h4>
+                    <p class="text-green-100 text-sm">
+                        Chatea con nosotros al instante
+                    </p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Redes sociales -->
+        <div class="text-center mb-16">
+            <h4 class="font-semibold text-silver-ligth mb-6 text-xl">
+                Síguenos en Redes Sociales
+            </h4>
+            <div class="flex justify-center space-x-8">
+                <!-- Facebook -->
+                <a
+                    href="https://www.facebook.com/100094298666994/videos/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="group relative p-6 rounded-2xl
+                           bg-gradient-to-br from-blue-600/20 to-blue-800/20
+                           border-2 border-blue-500/30 hover:border-blue-400/50
+                           transition-all duration-300 hover:scale-110
+                           hover:shadow-lg hover:shadow-blue-500/30"
+                >
+                    <Facebook
+                        class="w-8 h-8 text-blue-400 group-hover:text-blue-300 transition-colors duration-300"
+                    />
+                </a>
+
+                <!-- Instagram -->
+                <a
+                    href="https://www.instagram.com/leandroymijail_joyeria/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="group relative p-6 rounded-2xl
+                           bg-gradient-to-br from-pink-600/20 to-purple-800/20
+                           border-2 border-pink-500/30 hover:border-pink-400/50
+                           transition-all duration-300 hover:scale-110
+                           hover:shadow-lg hover:shadow-pink-500/30"
+                >
+                    <Instagram
+                        class="w-8 h-8 text-pink-400 group-hover:text-pink-300 transition-colors duration-300"
+                    />
+                </a>
+            </div>
+        </div>
+
+        <!-- FAQ integrado -->
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-8">
+                <h3
+                    class="text-2xl md:text-3xl font-bold text-silver-ligth mb-4"
+                >
+                    Preguntas Frecuentes
+                </h3>
+                <p class="text-silver/70 text-base">
+                    Resolvemos las dudas más comunes sobre nuestros servicios
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Items -->
+                <details
+                    class="group p-6 rounded-xl bg-gradient-to-r from-primary/70 to-primary/50
+                               border border-silver/15 hover:border-gold-light/30
+                               transition-all duration-300 shadow-lg"
+                >
+                    <summary
+                        class="flex items-center justify-between cursor-pointer text-silver-ligth font-semibold
+                                   group-open:text-gold-light transition-colors duration-300"
+                    >
+                        ¿Qué garantías ofrecen en sus joyas?
+                        <span
+                            class="text-gold-light text-xl group-open:rotate-45 transition-transform duration-300"
+                            >+</span
+                        >
+                    </summary>
+                    <div class="mt-4 text-silver/85 leading-relaxed">
+                        Todas nuestras joyas cuentan con <span
+                            class="text-gold-light font-medium"
+                            >certificación de autenticidad</span
+                        >
+                        y garantía extendida. Ofrecemos garantía contra defectos
+                        de fabricación y mantenimiento gratuito durante el primer
+                        año.
+                    </div>
+                </details>
+
+                <details
+                    class="group p-6 rounded-xl bg-gradient-to-r from-primary/70 to-primary/50
+                               border border-silver/15 hover:border-gold-light/30
+                               transition-all duration-300 shadow-lg"
+                >
+                    <summary
+                        class="flex items-center justify-between cursor-pointer text-silver-ligth font-semibold
+                                   group-open:text-gold-light transition-colors duration-300"
+                    >
+                        ¿Realizan trabajos de personalización?
+                        <span
+                            class="text-gold-light text-xl group-open:rotate-45 transition-transform duration-300"
+                            >+</span
+                        >
+                    </summary>
+                    <div class="mt-4 text-silver/85 leading-relaxed">
+                        ¡Por supuesto! Somos especialistas en <span
+                            class="text-gold-light font-medium"
+                            >joyas personalizadas</span
+                        >. Creamos piezas únicas según tus gustos y
+                        especificaciones. El tiempo de elaboración varía entre 7
+                        a 15 días.
+                    </div>
+                </details>
+
+                <details
+                    class="group p-6 rounded-xl bg-gradient-to-r from-primary/70 to-primary/50
+                               border border-silver/15 hover:border-gold-light/30
+                               transition-all duration-300 shadow-lg"
+                >
+                    <summary
+                        class="flex items-center justify-between cursor-pointer text-silver-ligth font-semibold
+                                   group-open:text-gold-light transition-colors duration-300"
+                    >
+                        ¿Qué materiales utilizan en sus joyas?
+                        <span
+                            class="text-gold-light text-xl group-open:rotate-45 transition-transform duration-300"
+                            >+</span
+                        >
+                    </summary>
+                    <div class="mt-4 text-silver/85 leading-relaxed">
+                        Trabajamos exclusivamente con <span
+                            class="text-gold-light font-medium"
+                            >materiales de primera calidad</span
+                        >: oro 10k, 14k y 18k, plata 925, piedras preciosas y
+                        semipreciosas certificadas.
+                    </div>
+                </details>
+
+                <details
+                    class="group p-6 rounded-xl bg-gradient-to-r from-primary/70 to-primary/50
+                               border border-silver/15 hover:border-gold-light/30
+                               transition-all duration-300 shadow-lg"
+                >
+                    <summary
+                        class="flex items-center justify-between cursor-pointer text-silver-ligth font-semibold
+                                   group-open:text-gold-light transition-colors duration-300"
+                    >
+                        ¿Ofrecen servicio de reparación?
+                        <span
+                            class="text-gold-light text-xl group-open:rotate-45 transition-transform duration-300"
+                            >+</span
+                        >
+                    </summary>
+                    <div class="mt-4 text-silver/85 leading-relaxed">
+                        Sí, contamos con <span
+                            class="text-gold-light font-medium"
+                            >servicio técnico especializado</span
+                        >
+                        para reparaciones de todo tipo: soldaduras, cambio de piedras,
+                        redimensionado de anillos, pulido y restauración.
+                    </div>
+                </details>
+
+                <details
+                    class="group p-6 rounded-xl bg-gradient-to-r from-primary/70 to-primary/50
+                               border border-silver/15 hover:border-gold-light/30
+                               transition-all duration-300 shadow-lg"
+                >
+                    <summary
+                        class="flex items-center justify-between cursor-pointer text-silver-ligth font-semibold
+                                   group-open:text-gold-light transition-colors duration-300"
+                    >
+                        ¿Qué formas de pago aceptan?
+                        <span
+                            class="text-gold-light text-xl group-open:rotate-45 transition-transform duration-300"
+                            >+</span
+                        >
+                    </summary>
+                    <div class="mt-4 text-silver/85 leading-relaxed">
+                        Aceptamos múltiples formas de pago: <span
+                            class="text-gold-light font-medium"
+                            >efectivo, transferencias bancarias y pagos móviles</span
+                        >. Para compras de alto valor ofrecemos planes de pago
+                        flexibles.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
