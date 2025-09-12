@@ -21,7 +21,9 @@ const articulosRegulares = blog.filter((articulo) => !articulo.destacado);
     <main class="min-h-screen bg-primary">
         <!-- Header Section -->
         <section class="pt-32 pb-16 px-6">
-            <div class="max-w-7xl mx-auto text-center">
+            <div
+                class="max-w-7xl mx-auto text-center animate-blurred-fade-in animate-delay-250"
+            >
                 <h1
                     class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 tracking-tight"
                 >
@@ -43,7 +45,7 @@ const articulosRegulares = blog.filter((articulo) => !articulo.destacado);
         </section>
 
         <!-- Filtros Section -->
-        <section class="pb-12 px-6">
+        <section class="pb-12 px-6 animate-blurred-fade-in animate-delay-250">
             <div class="max-w-7xl mx-auto">
                 <div class="flex flex-wrap justify-center gap-4 mb-8">
                     <ButtonTipe title="Todos los blogs" tipe="all" />
@@ -67,7 +69,9 @@ const articulosRegulares = blog.filter((articulo) => !articulo.destacado);
         <!-- Todos los artículos -->
         <section class="pb-20 px-6">
             <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-12">
+                <div
+                    class="text-center mb-12 animate-blurred-fade-in animate-delay-250"
+                >
                     <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
                         Todos los Artículos
                     </h2>
@@ -204,16 +208,16 @@ const articulosRegulares = blog.filter((articulo) => !articulo.destacado);
                 const category = item.getAttribute("data-category");
 
                 if (filter === "all" || category === filter) {
-                    item.style.display = "block";
+                    (item as HTMLElement).style.display = "block";
                     visibleCount++;
                 } else {
-                    item.style.display = "none";
+                    (item as HTMLElement).style.display = "none";
                 }
             });
 
             // Actualizar contador
             if (articleCount) {
-                articleCount.textContent = visibleCount;
+                articleCount.textContent = visibleCount.toString();
             }
 
             // Mostrar/ocultar mensaje de no artículos
@@ -223,16 +227,14 @@ const articulosRegulares = blog.filter((articulo) => !articulo.destacado);
                 noArticlesMessage?.classList.add("hidden");
             }
 
-            // Scroll suave hacia los artículos
-            document.getElementById("articles-grid")?.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-            });
+            // Scroll automático removido por petición del usuario
         });
     });
 
     // Inicializar filtro "Todos"
-    const allButton = document.querySelector('[data-filter="all"]');
+    const allButton = document.querySelector(
+        '[data-filter="all"]',
+    ) as HTMLButtonElement;
     if (allButton) {
         allButton.click();
     }
