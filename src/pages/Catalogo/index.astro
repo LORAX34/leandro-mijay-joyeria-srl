@@ -1,16 +1,258 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import CardProducto from "@/components/CardProducto.astro";
 import Decoration from "@/components/Decoration.astro";
+import productos from "@/data/productos.json";
 ---
 
 <Layout
-    title="Contacto - Leandro y Mijail Joyería | Tu Joyería de Confianza en Ciego de Ávila"
-    description="Visita Leandro y Mijail Joyería en Ciego de Ávila. Encuentra joyas únicas y artesanales."
+    title="Catálogo - Leandro y Mijail Joyería | Colección Completa de Joyas"
+    description="Explora nuestra colección completa de joyas artesanales. Anillos, collares, pulseras, aretes y cadenas únicas en Ciego de Ávila."
 >
     <main class="min-h-screen bg-primary">
-        <Decoration
-            title="Listado de productos"
-            subtitle="Selecciona la mejor joya para embellecer todo"
-        />
-    </main></Layout
->
+        <!-- Header Section -->
+        <section class="pt-32 pb-16 px-6">
+            <div class="max-w-7xl mx-auto text-center">
+                <h1
+                    class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight"
+                >
+                    Nuestro
+                    <span
+                        class="bg-gradient-to-r from-primary via-yellow-400 to-primary bg-clip-text text-transparent"
+                    >
+                        Catálogo
+                    </span>
+                </h1>
+                <p
+                    class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+                >
+                    Descubre nuestra exclusiva colección de joyas artesanales.
+                    Cada pieza es única y está creada con la más alta calidad y
+                    dedicación.
+                </p>
+            </div>
+        </section>
+
+        <!-- Filtros Section -->
+        <section class="pb-12 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <button
+                        class="px-6 py-3 bg-primary/20 text-primary border border-primary/30 rounded-full hover:bg-primary hover:text-white transition-all duration-300 backdrop-blur-sm"
+                        data-filter="all"
+                    >
+                        Todos los productos
+                    </button>
+                    <button
+                        class="px-6 py-3 bg-white/10 text-white border border-white/20 rounded-full hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 backdrop-blur-sm"
+                        data-filter="anillos"
+                    >
+                        Anillos
+                    </button>
+                    <button
+                        class="px-6 py-3 bg-white/10 text-white border border-white/20 rounded-full hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 backdrop-blur-sm"
+                        data-filter="collares"
+                    >
+                        Collares
+                    </button>
+                    <button
+                        class="px-6 py-3 bg-white/10 text-white border border-white/20 rounded-full hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 backdrop-blur-sm"
+                        data-filter="pulseras"
+                    >
+                        Pulseras
+                    </button>
+                    <button
+                        class="px-6 py-3 bg-white/10 text-white border border-white/20 rounded-full hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 backdrop-blur-sm"
+                        data-filter="aretes"
+                    >
+                        Aretes
+                    </button>
+                    <button
+                        class="px-6 py-3 bg-white/10 text-white border border-white/20 rounded-full hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 backdrop-blur-sm"
+                        data-filter="cadenas"
+                    >
+                        Cadenas
+                    </button>
+                </div>
+
+                <!-- Contador de productos -->
+                <div class="text-center mb-8">
+                    <p class="text-gray-400 text-lg">
+                        Mostrando <span id="product-count"
+                            >{productos.length}</span
+                        > productos
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Grid -->
+        <section class="pb-20 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div
+                    id="products-grid"
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 place-items-center"
+                >
+                    {
+                        productos.map((producto) => (
+                            <div
+                                class="product-item"
+                                data-category={producto.categoria}
+                            >
+                                <CardProducto
+                                    id={producto.id}
+                                    titulo={producto.titulo}
+                                    descripcion={producto.descripcion}
+                                    precio={producto.precio}
+                                    imagen={producto.imagen}
+                                    categoria={producto.categoria}
+                                />
+                            </div>
+                        ))
+                    }
+                </div>
+
+                <!-- Mensaje cuando no hay productos -->
+                <div id="no-products" class="hidden text-center py-20">
+                    <div class="text-gray-400">
+                        <svg
+                            class="w-24 h-24 mx-auto mb-6 opacity-50"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                            ></path>
+                        </svg>
+                        <h3 class="text-2xl font-bold mb-2">
+                            No se encontraron productos
+                        </h3>
+                        <p class="text-lg">Intenta con otra categoría</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="pb-20 px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <div
+                    class="bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-xl rounded-3xl p-12 border border-primary/20"
+                >
+                    <Decoration
+                        title="¿No encuentras lo que buscas?"
+                        subtitle=" Creamos joyas personalizadas únicas para ti. Contáctanos y hagamos realidad tu joya perfecta."
+                    />
+
+                    <a
+                        href="/Contacto"
+                        class="inline-flex items-center gap-3 px-8 py-4 bg-zafiro text-white font-semibold rounded-xl shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/50 hover:-translate-y-1 transition-all duration-300"
+                    >
+                        Contactar ahora
+                        <svg
+                            class="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<script>
+    // Filtros de productos
+    const filterButtons = document.querySelectorAll("[data-filter]");
+    const productItems = document.querySelectorAll(".product-item");
+    const productCount = document.getElementById("product-count");
+    const noProductsMessage = document.getElementById("no-products");
+
+    filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const filter = button.getAttribute("data-filter");
+
+            // Actualizar estilos de botones
+            filterButtons.forEach((btn) => {
+                btn.classList.remove(
+                    "bg-primary",
+                    "text-white",
+                    "border-primary",
+                );
+                btn.classList.add(
+                    "bg-white/10",
+                    "text-white",
+                    "border-white/20",
+                );
+            });
+
+            button.classList.remove(
+                "bg-white/10",
+                "text-white",
+                "border-white/20",
+            );
+            button.classList.add("bg-primary", "text-white", "border-primary");
+
+            // Filtrar productos
+            let visibleCount = 0;
+
+            productItems.forEach((item) => {
+                const category = item.getAttribute("data-category");
+
+                if (filter === "all" || category === filter) {
+                    item.style.display = "block";
+                    visibleCount++;
+                } else {
+                    item.style.display = "none";
+                }
+            });
+
+            // Actualizar contador
+            productCount.textContent = visibleCount;
+
+            // Mostrar/ocultar mensaje de no productos
+            if (visibleCount === 0) {
+                noProductsMessage.classList.remove("hidden");
+            } else {
+                noProductsMessage.classList.add("hidden");
+            }
+        });
+    });
+
+    // Inicializar filtro "Todos"
+    filterButtons[0].click();
+</script>
+
+<style>
+    /* Animaciones para los productos */
+    .product-item {
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Hover effects para botones de filtro */
+    [data-filter]:hover {
+        transform: translateY(-2px);
+    }
+</style>

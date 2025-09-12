@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "titulo": "Anillo de Compromiso Solitario",
+    "descripcion": "Elegante anillo de oro blanco 18k con diamante solitario de 1 quilate. Diseño clásico y atemporal que simboliza el amor eterno.",
+    "precio": 2500.00,
+    "categoria": "anillos",
+    "imagen": "/Hero.webp",
+    "destacado": true,
+    "disponible": true
+  },
+  {
+    "id": 2,
+    "titulo": "Anillo Eternidad Diamantes",
+    "descripcion": "Anillo de eternidad en oro amarillo con diamantes incrustados alrededor de toda la banda. Perfecto para celebrar aniversarios especiales.",
+    "precio": 1800.00,
+    "categoria": "anillos",
+    "imagen": "/Hero.webp",
+    "destacado": false,
+    "disponible": true
+  },
+  {
+    "id": 3,
+    "titulo": "Anillo Vintage Esmeralda",
+    "descripcion": "Anillo vintage inspirado en los años 20 con esmeralda central y pequeños diamantes. Diseño art déco único y sofisticado.",
+    "precio": 3200.00,
+    "categoria": "anillos",
+    "imagen": "/Hero.webp",
+    "destacado": true,
+    "disponible": true
+  },
+  {
+    "id": 4,
+    "titulo": "Collar de Perlas Clásico",
+    "descripcion": "Collar de perlas cultivadas de agua dulce con broche de oro blanco. Longitud de 45cm, perfecto para cualquier ocasión elegante.",
+    "precio": 850.00,
+    "categoria": "collares",
+    "imagen": "/Hero.webp",
+    "destacado": false,
+    "disponible": true
+  },
+  {
+    "id": 5,
+    "titulo": "Collar Gargantilla Diamante",
+    "descripcion": "Gargantilla moderna en oro rosa con diamante central flotante. Diseño minimalista que aporta elegancia a cualquier look.",
+    "precio": 1200.00,
+    "categoria": "collares",
+    "imagen": "/Hero.webp",
+    "destacado": true,
+    "disponible": true
+  },
+  {
+    "id": 6,
+    "titulo": "Collar Corazón Zafiro",
+    "descripcion": "Collar con dije de corazón en oro blanco con zafiro azul y pequeños diamantes. Símbolo perfecto de amor y devoción.",
+    "precio": 950.00,
+    "categoria": "collares",
+    "imagen": "/Hero.webp",
+    "destacado": false,
+    "disponible": true
+  },
+  {
+    "id": 7,
+    "titulo": "Pulsera Tennis Diamantes",
+    "descripcion": "Pulsera tennis en oro blanco con diamantes de corte brillante. 50 diamantes de 0.10ct cada uno. Elegancia pura en tu muñeca.",
+    "precio": 4500.00,
+    "categoria": "pulseras",
+    "imagen": "/Hero.webp",
+    "destacado": true,
+    "disponible": true
+  },
+  {
+    "id": 8,
+    "titulo": "Pulsera Charm Personalizada",
+    "descripcion": "Pulsera de plata con charms intercambiables. Incluye 5 charms iniciales, perfecta para crear tu propia historia.",
+    "precio": 320.00,
+    "categoria": "pulseras",
+    "imagen": "/Hero.webp",
+    "destacado": false,
+    "disponible": true
+  },
+  {
+    "id": 9,
+    "titulo": "Pulsera Brazalete Oro Rosa",
+    "descripcion": "Brazalete sólido en oro rosa 14k con grabado personalizable. Diseño contemporáneo que nunca pasa de moda.",
+    "precio": 680.00,
+    "categoria": "pulseras",
+    "imagen": "/Hero.webp",
+    "destacado": false,
+    "disponible": true
+  },
+  {
+    "id": 10,
+    "titulo": "Aretes Perla y Diamante",
+    "descripcion": "Aretes de botón con perla central y halo de diamantes. Combinación perfecta de elegancia clásica y brillo moderno.",
+    "precio": 750.00,
+    "categoria": "aretes",
+    "imagen": "/Hero.webp",
+    "destacado": true,
+    "disponible": true
+  },
+  {
+    "id": 11,
+    "titulo": "Aretes Largos Cristal",
+    "descripcion": "Aretes colgantes con cristales de Swarovski en degradé. Perfectos para eventos especiales y cenas elegantes.",
+    "precio": 180.00,
+    "categoria": "aretes",
+    "imagen": "/Hero.webp",
+    "destacado": false,
+    "disponible": true
+  },
+  {
+    "id": 12,
+    "titulo": "Aretes Huggie Diamantes",
+    "descripcion": "Pequeños aretes tipo huggie en oro amarillo con diamantes incrustados. Perfectos para uso diario con un toque de lujo.",
+    "precio": 420.00,
+    "categoria": "aretes",
+    "imagen": "/Hero.webp",
+    "destacado": false,
+    "disponible": true
+  },
+  {
+    "id": 13,
+    "titulo": "Cadena Cubana Oro",
+    "descripcion": "Cadena cubana en oro amarillo 14k, longitud 60cm. Eslabones sólidos y resistentes con cierre de seguridad.",
+    "precio": 1100.00,
+    "categoria": "cadenas",
+    "imagen": "/Hero.webp",
+    "destacado": false,
+    "disponible": true
+  },
+  {
+    "id": 14,
+    "titulo": "Cadena Veneziana Delicada",
+    "descripcion": "Cadena veneziana en oro blanco 18k, perfecta para dijes. Longitud ajustable de 40-45cm, ideal para uso diario.",
+    "precio": 380.00,
+    "categoria": "cadenas",
+    "imagen": "/Hero.webp",
+    "destacado": true,
+    "disponible": true
+  },
+  {
+    "id": 15,
+    "titulo": "Cadena Figaro Plata",
+    "descripcion": "Cadena Figaro en plata 925 con baño de rodio. Diseño masculino robusto, longitud 70cm. Perfecta para hombres.",
+    "precio": 145.00,
+    "categoria": "cadenas",
+    "imagen": "/Hero.webp",
+    "destacado": false,
+    "disponible": true
+  },
+  {
+    "id": 16,
+    "titulo": "Anillo Alianza Matrimonio",
+    "descripción": "Alianza de matrimonio clásica en oro blanco con acabado mate. Ancho de 4mm, cómoda para uso diario.",
+    "precio": 450.00,
+    "categoria": "anillos",
+    "imagen": "/Hero.webp",
+    "destacado": false,
+    "disponible": true
+  },
+  {
+    "id": 17,
+    "titulo": "Collar Infinity Diamantes",
+    "descripcion": "Collar con dije de infinito en oro rosa adornado con pequeños diamantes. Símbolo de amor eterno e infinito.",
+    "precio": 620.00,
+    "categoria": "collares",
+    "imagen": "/Hero.webp",
+    "destacado": true,
+    "disponible": true
+  },
+  {
+    "id": 18,
+    "titulo": "Pulsera Elástica Piedras",
+    "descripcion": "Pulsera elástica con piedras naturales y detalles en plata. Perfecta para un look bohemio y natural.",
+    "precio": 85.00,
+    "categoria": "pulseras",
+    "imagen": "/Hero.webp",
+    "destacado": false,
+    "disponible": false
+  }
+]

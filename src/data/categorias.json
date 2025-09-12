@@ -7,7 +7,7 @@
             "imagen": "/Hero.webp",
             "texto_ver_mas_es": "Ver mas",
             "texto_ver_mas_en": "View More",
-            "url": "/Catalogo/anillos"
+            "url": "/categoria/anillos"
         },
         {
             "categoria": "categoria",
@@ -16,7 +16,7 @@
             "imagen": "/arete.webp",
             "texto_ver_mas_es": "Ver mas",
             "texto_ver_mas_en": "View More",
-            "url": "/Catalogo/aretes"
+            "url": "/categoria/aretes"
         },
         {
             "categoria": "categoria",
@@ -25,7 +25,7 @@
             "imagen": "/Hero.webp",
             "texto_ver_mas_es": "Ver mas",
             "texto_ver_mas_en": "View More",
-            "url": "/Catalogo/cadenas"
+            "url": "/categoria/cadenas"
         },
         {
             "categoria": "categoria",
@@ -34,7 +34,7 @@
             "imagen": "/Hero.webp",
             "texto_ver_mas_es": "Ver mas",
             "texto_ver_mas_en": "View More",
-            "url": "/Catalogo/charms"
+            "url": "/categoria/charms"
         },
         {
             "categoria": "categoria",
@@ -43,7 +43,7 @@
             "imagen": "/Hero.webp",
             "texto_ver_mas_es": "Ver mas",
             "texto_ver_mas_en": "View More",
-            "url": "/Catalogo/conjuntos"
+            "url": "/categoria/conjuntos"
         },
         {
             "categoria": "categoria",
@@ -52,7 +52,7 @@
             "imagen": "/Hero.webp",
             "texto_ver_mas_es": "Ver mas",
             "texto_ver_mas_en": "View More",
-            "url": "/Catalogo/dijes"
+            "url": "/categoria/dijes"
         },
         {
             "categoria": "categoria",
@@ -61,7 +61,7 @@
             "imagen": "/Hero.webp",
             "texto_ver_mas_es": "Ver mas",
             "texto_ver_mas_en": "View More",
-            "url": "/Catalogo/personalizaciones"
+            "url": "/categoria/personalizaciones"
         },
         {
             "categoria": "categoria",
@@ -70,7 +70,7 @@
             "imagen": "/Hero.webp",
             "texto_ver_mas_es": "Ver mas",
             "texto_ver_mas_en": "View More",
-            "url": "/Catalogo/pulsos"
+            "url": "/categoria/pulsos"
         },
         {
             "categoria": "categoria",
@@ -79,7 +79,7 @@
             "imagen": "/Hero.webp",
             "texto_ver_mas_es": "Ver mas",
             "texto_ver_mas_en": "View More",
-            "url": "/Catalogo/relojes"
+            "url": "/categoria/relojes"
         }
     ]
 }

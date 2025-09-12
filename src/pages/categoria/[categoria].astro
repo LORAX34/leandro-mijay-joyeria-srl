@@ -1,0 +1,371 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import CardProducto from "@/components/CardProducto.astro";
+import productos from "@/data/productos.json";
+
+export async function getStaticPaths() {
+    // Obtener todas las categorías únicas
+    const categorias = [
+        ...new Set(productos.map((producto) => producto.categoria)),
+    ];
+
+    return categorias.map((categoria) => ({
+        params: { categoria },
+    }));
+}
+
+const { categoria } = Astro.params;
+
+// Filtrar productos por categoría
+const productosPorCategoria = productos.filter(
+    (producto) => producto.categoria === categoria,
+);
+
+// Capitalizar primera letra para el título
+const categoriaCapitalizada =
+    categoria.charAt(0).toUpperCase() + categoria.slice(1);
+
+// Obtener conteo de productos
+const totalProductos = productosPorCategoria.length;
+---
+
+<Layout
+    title={`${categoriaCapitalizada} - Leandro y Mijail Joyería | Colección Exclusiva`}
+    description={`Descubre nuestra exclusiva colección de ${categoria}. Piezas únicas y artesanales en Ciego de Ávila.`}
+>
+    <main class="min-h-screen bg-primary">
+        <!-- Header Section -->
+        <section class="pt-32 pb-16 px-6">
+            <div class="max-w-7xl mx-auto text-center">
+                <!-- Breadcrumb -->
+                <nav class="mb-8">
+                    <ol
+                        class="flex justify-center items-center space-x-2 text-gray-400 text-sm"
+                    >
+                        <li>
+                            <a
+                                href="/"
+                                class="hover:text-primary transition-colors"
+                                >Inicio</a
+                            >
+                        </li>
+                        <li>
+                            <svg
+                                class="w-4 h-4"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </li>
+                        <li>
+                            <a
+                                href="/Catalogo"
+                                class="hover:text-primary transition-colors"
+                                >Catálogo</a
+                            >
+                        </li>
+                        <li>
+                            <svg
+                                class="w-4 h-4"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </li>
+                        <li class="text-primary font-medium">
+                            {categoriaCapitalizada}
+                        </li>
+                    </ol>
+                </nav>
+
+                <h1
+                    class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight"
+                >
+                    <span
+                        class="bg-gradient-to-r from-primary via-yellow-400 to-primary bg-clip-text text-transparent"
+                    >
+                        {categoriaCapitalizada}
+                    </span>
+                </h1>
+                <p
+                    class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-6"
+                >
+                    Explora nuestra exclusiva colección de {categoria}. Cada
+                    pieza es única y está creada con la más alta calidad y
+                    dedicación artesanal.
+                </p>
+
+                <!-- Contador de productos -->
+                <div
+                    class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-gray-300"
+                >
+                    <svg
+                        class="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                        ></path>
+                    </svg>
+                    <span>{totalProductos} productos disponibles</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navegación entre categorías -->
+        <section class="pb-12 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a
+                        href="/Catalogo"
+                        class="px-6 py-3 bg-white/10 text-white border border-white/20 rounded-full hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 backdrop-blur-sm"
+                    >
+                        Ver todos
+                    </a>
+                    <a
+                        href="/categoria/anillos"
+                        class={`px-6 py-3 border rounded-full transition-all duration-300 backdrop-blur-sm ${
+                            categoria === "anillos"
+                                ? "bg-primary text-white border-primary"
+                                : "bg-white/10 text-white border-white/20 hover:bg-primary hover:text-white hover:border-primary"
+                        }`}
+                    >
+                        Anillos
+                    </a>
+                    <a
+                        href="/categoria/collares"
+                        class={`px-6 py-3 border rounded-full transition-all duration-300 backdrop-blur-sm ${
+                            categoria === "collares"
+                                ? "bg-primary text-white border-primary"
+                                : "bg-white/10 text-white border-white/20 hover:bg-primary hover:text-white hover:border-primary"
+                        }`}
+                    >
+                        Collares
+                    </a>
+                    <a
+                        href="/categoria/pulseras"
+                        class={`px-6 py-3 border rounded-full transition-all duration-300 backdrop-blur-sm ${
+                            categoria === "pulseras"
+                                ? "bg-primary text-white border-primary"
+                                : "bg-white/10 text-white border-white/20 hover:bg-primary hover:text-white hover:border-primary"
+                        }`}
+                    >
+                        Pulseras
+                    </a>
+                    <a
+                        href="/categoria/aretes"
+                        class={`px-6 py-3 border rounded-full transition-all duration-300 backdrop-blur-sm ${
+                            categoria === "aretes"
+                                ? "bg-primary text-white border-primary"
+                                : "bg-white/10 text-white border-white/20 hover:bg-primary hover:text-white hover:border-primary"
+                        }`}
+                    >
+                        Aretes
+                    </a>
+                    <a
+                        href="/categoria/cadenas"
+                        class={`px-6 py-3 border rounded-full transition-all duration-300 backdrop-blur-sm ${
+                            categoria === "cadenas"
+                                ? "bg-primary text-white border-primary"
+                                : "bg-white/10 text-white border-white/20 hover:bg-primary hover:text-white hover:border-primary"
+                        }`}
+                    >
+                        Cadenas
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Grid -->
+        <section class="pb-20 px-6">
+            <div class="max-w-7xl mx-auto">
+                {
+                    totalProductos > 0 ? (
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 place-items-center">
+                            {productosPorCategoria.map((producto) => (
+                                <div class="product-item">
+                                    <CardProducto
+                                        id={producto.id}
+                                        titulo={producto.titulo}
+                                        descripcion={producto.descripcion}
+                                        precio={producto.precio}
+                                        imagen={producto.imagen}
+                                        categoria={producto.categoria}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <div class="text-center py-20">
+                            <div class="text-gray-400">
+                                <svg
+                                    class="w-24 h-24 mx-auto mb-6 opacity-50"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1"
+                                        d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
+                                    />
+                                </svg>
+                                <h3 class="text-2xl font-bold mb-2">
+                                    No hay productos disponibles
+                                </h3>
+                                <p class="text-lg mb-8">
+                                    Actualmente no tenemos {categoria} en stock
+                                </p>
+                                <a
+                                    href="/Catalogo"
+                                    class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-xl hover:bg-primary/80 transition-colors"
+                                >
+                                    Ver todo el catálogo
+                                    <svg
+                                        class="w-4 h-4"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M13 7l5 5m0 0l-5 5m5-5H6"
+                                        />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    )
+                }
+            </div>
+        </section>
+
+        <!-- Productos destacados de otras categorías -->
+        {
+            totalProductos > 0 && (
+                <section class="pb-20 px-6">
+                    <div class="max-w-7xl mx-auto">
+                        <div class="text-center mb-12">
+                            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                                También te puede interesar
+                            </h2>
+                            <p class="text-gray-400 text-lg">
+                                Otros productos destacados de nuestra colección
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
+                            {productos
+                                .filter(
+                                    (producto) =>
+                                        producto.categoria !== categoria &&
+                                        producto.destacado,
+                                )
+                                .slice(0, 3)
+                                .map((producto) => (
+                                    <div class="product-item">
+                                        <CardProducto
+                                            id={producto.id}
+                                            titulo={producto.titulo}
+                                            descripcion={producto.descripcion}
+                                            precio={producto.precio}
+                                            imagen={producto.imagen}
+                                            categoria={producto.categoria}
+                                        />
+                                    </div>
+                                ))}
+                        </div>
+                    </div>
+                </section>
+            )
+        }
+
+        <!-- Call to Action -->
+        <section class="pb-20 px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <div
+                    class="bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-xl rounded-3xl p-12 border border-primary/20"
+                >
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                        ¿Buscas algo especial?
+                    </h2>
+                    <p class="text-xl text-gray-300 mb-8">
+                        Creamos {categoria} personalizados únicos para ti. Contáctanos
+                        y hagamos realidad tu joya perfecta.
+                    </p>
+                    <a
+                        href="/Contacto"
+                        class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-primary/80 text-white font-semibold rounded-xl shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/50 hover:-translate-y-1 transition-all duration-300"
+                    >
+                        Solicitar personalización
+                        <svg
+                            class="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    .product-item {
+        animation: fadeIn 0.6s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Stagger animation for products */
+    .product-item:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+    .product-item:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+    .product-item:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+    .product-item:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+    .product-item:nth-child(5) {
+        animation-delay: 0.5s;
+    }
+    .product-item:nth-child(6) {
+        animation-delay: 0.6s;
+    }
+</style>

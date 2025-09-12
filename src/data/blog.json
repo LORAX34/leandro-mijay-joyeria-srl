@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "titulo": "Tendencias en Joyería 2024: Lo que Estará de Moda",
+    "descripcion": "Descubre las principales tendencias en joyería para este año. Desde los metales mixtos hasta las piedras de colores vibrantes, te contamos qué llevará la moda.",
+    "contenido": "Este año 2024 promete ser emocionante en el mundo de la joyería. Las tendencias apuntan hacia piezas más audaces y expresivas...",
+    "autor": "María González",
+    "fecha": "2024-01-15",
+    "imagen": "/Hero.webp",
+    "categoria": "Tendencias",
+    "destacado": true,
+    "etiquetas": ["tendencias", "moda", "2024", "estilos"]
+  },
+  {
+    "id": 2,
+    "titulo": "Cómo Elegir el Anillo de Compromiso Perfecto",
+    "descripcion": "Guía completa para elegir el anillo de compromiso ideal. Consejos sobre cortes de diamantes, metales y presupuesto.",
+    "contenido": "Elegir un anillo de compromiso es una de las decisiones más importantes que tomarás. Aquí te ayudamos paso a paso...",
+    "autor": "Carlos Hernández",
+    "fecha": "2024-01-08",
+    "imagen": "/Hero.webp",
+    "categoria": "Guías",
+    "destacado": true,
+    "etiquetas": ["anillos", "compromiso", "diamantes", "consejos"]
+  },
+  {
+    "id": 3,
+    "titulo": "Cuidado y Mantenimiento de tus Joyas de Oro",
+    "descripcion": "Aprende las mejores técnicas para mantener tus joyas de oro como nuevas. Tips de limpieza y almacenamiento profesional.",
+    "contenido": "El oro es uno de los metales más duraderos, pero requiere cuidados específicos para mantener su brillo...",
+    "autor": "Ana Martínez",
+    "fecha": "2024-01-03",
+    "imagen": "/Hero.webp",
+    "categoria": "Cuidados",
+    "destacado": false,
+    "etiquetas": ["oro", "cuidado", "limpieza", "mantenimiento"]
+  },
+  {
+    "id": 4,
+    "titulo": "La Historia Fascinante de las Perlas Cultivadas",
+    "descripcion": "Conoce el proceso de cultivo de perlas y cómo han evolucionado desde las antiguas civilizaciones hasta la actualidad.",
+    "contenido": "Las perlas han fascinado a la humanidad durante milenios. Desde las perlas naturales hasta las cultivadas...",
+    "autor": "Roberto Silva",
+    "fecha": "2023-12-28",
+    "imagen": "/Hero.webp",
+    "categoria": "Historia",
+    "destacado": false,
+    "etiquetas": ["perlas", "historia", "cultivo", "tradición"]
+  },
+  {
+    "id": 5,
+    "titulo": "Joyería Personalizada: Creando Piezas Únicas",
+    "descripcion": "Descubre el mundo de la joyería personalizada y cómo crear piezas únicas que reflejen tu personalidad y estilo.",
+    "contenido": "La joyería personalizada se ha convertido en una tendencia creciente. Permite expresar individualidad...",
+    "autor": "Laura Pérez",
+    "fecha": "2023-12-20",
+    "imagen": "/Hero.webp",
+    "categoria": "Personalización",
+    "destacado": true,
+    "etiquetas": ["personalización", "único", "diseño", "custom"]
+  },
+  {
+    "id": 6,
+    "titulo": "Piedras Preciosas: Guía de Colores y Significados",
+    "descripcion": "Explora el mundo de las piedras preciosas, sus colores únicos y los significados especiales que han tenido a través de la historia.",
+    "contenido": "Cada piedra preciosa tiene su propia historia y significado. Los rubíes simbolizan la pasión...",
+    "autor": "Miguel Torres",
+    "fecha": "2023-12-15",
+    "imagen": "/Hero.webp",
+    "categoria": "Educación",
+    "destacado": false,
+    "etiquetas": ["piedras", "significados", "colores", "simbolismo"]
+  },
+  {
+    "id": 7,
+    "titulo": "Joyería Vintage: Tesoros del Pasado",
+    "descripcion": "Un viaje por la joyería vintage, desde piezas art déco hasta diseños victorianos. Aprende a identificar y valorar estas joyas únicas.",
+    "contenido": "La joyería vintage no solo es hermosa, sino que también cuenta historias del pasado...",
+    "autor": "Isabel Rodríguez",
+    "fecha": "2023-12-08",
+    "imagen": "/Hero.webp",
+    "categoria": "Vintage",
+    "destacado": false,
+    "etiquetas": ["vintage", "historia", "antigüedades", "colección"]
+  },
+  {
+    "id": 8,
+    "titulo": "Inversión en Joyas: Qué Considerar Antes de Comprar",
+    "descripcion": "Guía práctica sobre cómo invertir en joyería. Factores a considerar, tipos de joyas que retienen valor y consejos de expertos.",
+    "contenido": "Invertir en joyería puede ser una excelente decisión si sabes qué buscar. La calidad, rareza y procedencia...",
+    "autor": "Fernando López",
+    "fecha": "2023-12-01",
+    "imagen": "/Hero.webp",
+    "categoria": "Inversión",
+    "destacado": true,
+    "etiquetas": ["inversión", "valor", "compra", "consejos"]
+  }
+]

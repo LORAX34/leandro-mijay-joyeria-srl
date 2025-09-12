@@ -1,16 +1,408 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Decoration from "@/components/Decoration.astro";
+import CardBlog from "@/components/CardBlog.astro";
+import blog from "@/data/blog.json";
+
+// Obtener categorías únicas
+const categorias = [...new Set(blog.map((articulo) => articulo.categoria))];
+
+// Separar artículos destacados
+const articulosDestacados = blog.filter((articulo) => articulo.destacado);
+const articulosRegulares = blog.filter((articulo) => !articulo.destacado);
 ---
 
 <Layout
-    title="Contacto - Leandro y Mijail Joyería | Tu Joyería de Confianza en Ciego de Ávila"
-    description="Visita Leandro y Mijail Joyería en Ciego de Ávila. Encuentra joyas únicas y artesanales."
+    title="Blog - Leandro y Mijail Joyería | Consejos y Tendencias en Joyería"
+    description="Descubre consejos, tendencias y guías sobre joyería. Aprende sobre cuidado de joyas, tendencias de moda y más en nuestro blog especializado."
 >
     <main class="min-h-screen bg-primary">
-        <Decoration
-            title="Blog Oficial"
-            subtitle="Para que estes al tanto de todas las noticias de nuestra joyeria"
-        />
-    </main></Layout
->
+        <!-- Header Section -->
+        <section class="pt-32 pb-16 px-6">
+            <div class="max-w-7xl mx-auto text-center">
+                <h1
+                    class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight"
+                >
+                    Nuestro
+                    <span
+                        class="bg-gradient-to-r from-primary via-yellow-400 to-primary bg-clip-text text-transparent"
+                    >
+                        Blog
+                    </span>
+                </h1>
+                <p
+                    class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+                >
+                    Descubre el fascinante mundo de la joyería a través de
+                    nuestros artículos. Tendencias, consejos de cuidado,
+                    historias y guías especializadas.
+                </p>
+            </div>
+        </section>
+
+        <!-- Filtros Section -->
+        <section class="pb-12 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <button
+                        class="px-6 py-3 bg-primary/20 text-primary border border-primary/30 rounded-full hover:bg-primary hover:text-white transition-all duration-300 backdrop-blur-sm"
+                        data-filter="all"
+                    >
+                        Todos los artículos
+                    </button>
+                    {
+                        categorias.map((categoria) => (
+                            <button
+                                class="px-6 py-3 bg-white/10 text-white border border-white/20 rounded-full hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 backdrop-blur-sm"
+                                data-filter={categoria}
+                            >
+                                {categoria}
+                            </button>
+                        ))
+                    }
+                </div>
+
+                <!-- Contador de artículos -->
+                <div class="text-center mb-8">
+                    <p class="text-gray-400 text-lg">
+                        Mostrando <span id="article-count">{blog.length}</span> artículos
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Artículos Destacados -->
+        {
+            articulosDestacados.length > 0 && (
+                <section class="pb-16 px-6">
+                    <div class="max-w-7xl mx-auto">
+                        <div class="text-center mb-12">
+                            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                                Artículos Destacados
+                            </h2>
+                            <p class="text-gray-400 text-lg">
+                                Los artículos más populares y relevantes
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center mb-16">
+                            {articulosDestacados.map((articulo) => (
+                                <div
+                                    class="article-item featured"
+                                    data-category={articulo.categoria}
+                                >
+                                    <CardBlog
+                                        id={articulo.id}
+                                        titulo={articulo.titulo}
+                                        descripcion={articulo.descripcion}
+                                        autor={articulo.autor}
+                                        fecha={articulo.fecha}
+                                        imagen={articulo.imagen}
+                                        categoria={articulo.categoria}
+                                        destacado={articulo.destacado}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )
+        }
+
+        <!-- Todos los artículos -->
+        <section class="pb-20 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                        Todos los Artículos
+                    </h2>
+                    <p class="text-gray-400 text-lg">
+                        Explora nuestra biblioteca completa de contenido
+                    </p>
+                </div>
+
+                <div
+                    id="articles-grid"
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 place-items-center"
+                >
+                    {
+                        blog.map((articulo) => (
+                            <div
+                                class="article-item"
+                                data-category={articulo.categoria}
+                            >
+                                <CardBlog
+                                    id={articulo.id}
+                                    titulo={articulo.titulo}
+                                    descripcion={articulo.descripcion}
+                                    autor={articulo.autor}
+                                    fecha={articulo.fecha}
+                                    imagen={articulo.imagen}
+                                    categoria={articulo.categoria}
+                                    destacado={articulo.destacado}
+                                />
+                            </div>
+                        ))
+                    }
+                </div>
+
+                <!-- Mensaje cuando no hay artículos -->
+                <div id="no-articles" class="hidden text-center py-20">
+                    <div class="text-gray-400">
+                        <svg
+                            class="w-24 h-24 mx-auto mb-6 opacity-50"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                            ></path>
+                        </svg>
+                        <h3 class="text-2xl font-bold mb-2">
+                            No se encontraron artículos
+                        </h3>
+                        <p class="text-lg">Intenta con otra categoría</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="pb-20 px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <div
+                    class="bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-xl rounded-3xl p-12 border border-primary/20"
+                >
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                        ¿Te gustó nuestro contenido?
+                    </h2>
+                    <p class="text-xl text-gray-300 mb-8">
+                        Mantente al día con las últimas tendencias en joyería y
+                        recibe consejos exclusivos.
+                    </p>
+                    <a
+                        href="/Contacto"
+                        class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-primary/80 text-white font-semibold rounded-xl shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/50 hover:-translate-y-1 transition-all duration-300"
+                    >
+                        Contáctanos
+                        <svg
+                            class="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categorías populares -->
+        <section class="pb-20 px-6">
+            <div class="max-w-7xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-12">
+                    Explora por Categorías
+                </h2>
+
+                <div
+                    class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4"
+                >
+                    {
+                        categorias.map((categoria) => {
+                            const count = blog.filter(
+                                (articulo) => articulo.categoria === categoria,
+                            ).length;
+                            return (
+                                <button
+                                    class="p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300 group"
+                                    data-filter={categoria}
+                                >
+                                    <h3 class="text-white font-semibold mb-2 group-hover:text-primary transition-colors">
+                                        {categoria}
+                                    </h3>
+                                    <p class="text-gray-400 text-sm">
+                                        {count} artículo{count !== 1 ? "s" : ""}
+                                    </p>
+                                </button>
+                            );
+                        })
+                    }
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<script>
+    // Filtros de artículos
+    const filterButtons = document.querySelectorAll("[data-filter]");
+    const articleItems = document.querySelectorAll(".article-item");
+    const articleCount = document.getElementById("article-count");
+    const noArticlesMessage = document.getElementById("no-articles");
+
+    filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const filter = button.getAttribute("data-filter");
+
+            // Actualizar estilos de botones
+            filterButtons.forEach((btn) => {
+                btn.classList.remove(
+                    "bg-primary",
+                    "text-white",
+                    "border-primary",
+                );
+                btn.classList.add(
+                    "bg-white/10",
+                    "text-white",
+                    "border-white/20",
+                );
+            });
+
+            button.classList.remove(
+                "bg-white/10",
+                "text-white",
+                "border-white/20",
+            );
+            button.classList.add("bg-primary", "text-white", "border-primary");
+
+            // Filtrar artículos
+            let visibleCount = 0;
+
+            articleItems.forEach((item) => {
+                const category = item.getAttribute("data-category");
+
+                if (filter === "all" || category === filter) {
+                    item.style.display = "block";
+                    visibleCount++;
+                } else {
+                    item.style.display = "none";
+                }
+            });
+
+            // Actualizar contador
+            if (articleCount) {
+                articleCount.textContent = visibleCount;
+            }
+
+            // Mostrar/ocultar mensaje de no artículos
+            if (visibleCount === 0) {
+                noArticlesMessage?.classList.remove("hidden");
+            } else {
+                noArticlesMessage?.classList.add("hidden");
+            }
+
+            // Scroll suave hacia los artículos
+            document.getElementById("articles-grid")?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        });
+    });
+
+    // Inicializar filtro "Todos"
+    const allButton = document.querySelector('[data-filter="all"]');
+    if (allButton) {
+        allButton.click();
+    }
+</script>
+
+<style>
+    /* Animaciones para los artículos */
+    .article-item {
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .article-item.featured {
+        animation: featuredFadeIn 0.6s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes featuredFadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    /* Stagger animation for articles */
+    .article-item:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+    .article-item:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+    .article-item:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+    .article-item:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+    .article-item:nth-child(5) {
+        animation-delay: 0.5s;
+    }
+    .article-item:nth-child(6) {
+        animation-delay: 0.6s;
+    }
+    .article-item:nth-child(7) {
+        animation-delay: 0.7s;
+    }
+    .article-item:nth-child(8) {
+        animation-delay: 0.8s;
+    }
+
+    /* Hover effects para botones de filtro */
+    [data-filter]:hover {
+        transform: translateY(-2px);
+    }
+
+    /* Efectos especiales para artículos destacados */
+    .featured {
+        position: relative;
+    }
+
+    .featured::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, #d4af37, #ffd700, #d4af37);
+        border-radius: 1.75rem;
+        z-index: -1;
+        opacity: 0.5;
+        animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+        0%,
+        100% {
+            opacity: 0.5;
+        }
+        50% {
+            opacity: 0.8;
+        }
+    }
+</style>
