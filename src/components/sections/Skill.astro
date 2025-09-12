@@ -1,6 +1,7 @@
 ---
 import ObjectSkill from "@/components/ObjectSkill.astro";
 import skillsData from "@/data/skills.json";
+import Decoration from "@/components/Decoration.astro";
 
 import Diamante from "@/components/icons/Diamante.astro";
 import Pergamino from "@/components/icons/Pergamino.astro";
@@ -48,45 +49,9 @@ const { skills, seccion } = skillsData;
     </div>
 
     <div class="relative max-w-7xl mx-auto z-10">
-        <header class="text-center mb-16 md:mb-20">
-            <h2
-                class="text-3xl md:text-4xl lg:text-5xl font-bold
-                       text-transparent bg-gradient-to-r from-silver-ligth via-white to-silver-ligth
-                       bg-clip-text mb-4 tracking-tight
-                       fade-in-up animate-duration-800"
-            >
-                {seccion.titulo_es}
-            </h2>
-
-            <p
-                class="text-silver/80 text-lg md:text-xl font-light max-w-2xl mx-auto mb-6
-                       fade-in-up animate-duration-800 animate-delay-200"
-            >
-                {seccion.subtitulo_es}
-            </p>
-
-            <!-- Línea decorativa animada -->
-            <div class="flex justify-center items-center space-x-4">
-                <div
-                    class="h-px bg-gradient-to-r from-transparent via-gold-light to-transparent
-                           w-16 md:w-24 fade-in animate-duration-1000 animate-delay-400"
-                >
-                </div>
-                <div
-                    class="w-2 h-2 bg-gold-light rounded-full
-                           fade-in animate-duration-1000 animate-delay-600
-                           animate-pulse animate-delay-1000"
-                >
-                </div>
-                <div
-                    class="h-px bg-gradient-to-r from-transparent via-gold-light to-transparent
-                           w-16 md:w-24 fade-in animate-duration-1000 animate-delay-400"
-                >
-                </div>
-            </div>
-        </header>
-
         <!-- Grid de características -->
+        <Decoration title={seccion.titulo_es} subtitle={seccion.subtitulo_es} />
+
         <div
             class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 lg:gap-12
                    items-stretch"

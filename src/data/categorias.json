@@ -6,8 +6,8 @@
             "nombre_en": "Rings",
             "imagen": "/Hero.webp",
             "texto_ver_mas_es": "Ver mas",
-            "texto_ver_mas_en": "Discover our rings collection",
-            "url": "/catalogo/anillos"
+            "texto_ver_mas_en": "View More",
+            "url": "/Catalogo/anillos"
         },
         {
             "categoria": "categoria",
@@ -15,8 +15,8 @@
             "nombre_en": "Earrings",
             "imagen": "/arete.webp",
             "texto_ver_mas_es": "Ver mas",
-            "texto_ver_mas_en": "Explore our earrings designs",
-            "url": "/catalogo/aretes"
+            "texto_ver_mas_en": "View More",
+            "url": "/Catalogo/aretes"
         },
         {
             "categoria": "categoria",
@@ -24,8 +24,8 @@
             "nombre_en": "Chains",
             "imagen": "/Hero.webp",
             "texto_ver_mas_es": "Ver mas",
-            "texto_ver_mas_en": "Find the perfect chain",
-            "url": "/catalogo/cadenas"
+            "texto_ver_mas_en": "View More",
+            "url": "/Catalogo/cadenas"
         },
         {
             "categoria": "categoria",
@@ -33,8 +33,8 @@
             "nombre_en": "Charms",
             "imagen": "/Hero.webp",
             "texto_ver_mas_es": "Ver mas",
-            "texto_ver_mas_en": "Customize with our charms",
-            "url": "/catalogo/charms"
+            "texto_ver_mas_en": "View More",
+            "url": "/Catalogo/charms"
         },
         {
             "categoria": "categoria",
@@ -42,8 +42,8 @@
             "nombre_en": "Sets",
             "imagen": "/Hero.webp",
             "texto_ver_mas_es": "Ver mas",
-            "texto_ver_mas_en": "Harmonious sets for special occasions",
-            "url": "/catalogo/conjuntos"
+            "texto_ver_mas_en": "View More",
+            "url": "/Catalogo/conjuntos"
         },
         {
             "categoria": "categoria",
@@ -51,8 +51,8 @@
             "nombre_en": "Pendants",
             "imagen": "/Hero.webp",
             "texto_ver_mas_es": "Ver mas",
-            "texto_ver_mas_en": "Pendants with special meaning",
-            "url": "/catalogo/dijes"
+            "texto_ver_mas_en": "View More",
+            "url": "/Catalogo/dijes"
         },
         {
             "categoria": "categoria",
@@ -60,8 +60,8 @@
             "nombre_en": "Customizations",
             "imagen": "/Hero.webp",
             "texto_ver_mas_es": "Ver mas",
-            "texto_ver_mas_en": "We create unique jewelry for you",
-            "url": "/catalogo/personalizaciones"
+            "texto_ver_mas_en": "View More",
+            "url": "/Catalogo/personalizaciones"
         },
         {
             "categoria": "categoria",
@@ -69,8 +69,8 @@
             "nombre_en": "Bracelets",
             "imagen": "/Hero.webp",
             "texto_ver_mas_es": "Ver mas",
-            "texto_ver_mas_en": "Bracelets that tell your story",
-            "url": "/catalogo/pulsos"
+            "texto_ver_mas_en": "View More",
+            "url": "/Catalogo/pulsos"
         },
         {
             "categoria": "categoria",
@@ -78,8 +78,8 @@
             "nombre_en": "Watches",
             "imagen": "/Hero.webp",
             "texto_ver_mas_es": "Ver mas",
-            "texto_ver_mas_en": "Elegance that marks every moment",
-            "url": "/catalogo/relojes"
+            "texto_ver_mas_en": "View More",
+            "url": "/Catalogo/relojes"
         }
     ]
 }
