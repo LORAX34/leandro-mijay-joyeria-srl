@@ -28,7 +28,7 @@ const precioFormateado = new Intl.NumberFormat("es-US", {
 
         <!-- Badge de categoría -->
         <div
-            class="absolute top-3 right-3 backdrop-blur-xl bg-primary/90 text-silver-ligth px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide shadow-lg"
+            class="absolute top-3 right-3 backdrop-blur-xl bg-primary/90 text-gold-light px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide shadow-lg"
         >
             {categoria}
         </div>
@@ -37,7 +37,7 @@ const precioFormateado = new Intl.NumberFormat("es-US", {
     <!-- Información del producto -->
     <div class="flex flex-col gap-y-2 w-full flex-1">
         <h3
-            class="text-zafiro font-bold text-xl leading-tight transition-colors duration-300 group-hover:text-primary line-clamp-2"
+            class="text-zafiro font-bold text-xl leading-tight transition-colors duration-300 group-hover:text-zafiro-claro line-clamp-2"
         >
             {titulo}
         </h3>
@@ -56,7 +56,7 @@ const precioFormateado = new Intl.NumberFormat("es-US", {
                 >Precio</span
             >
             <span
-                class="text-2xl font-extrabold text-primary transition-colors duration-300 group-hover:text-primary/80"
+                class="text-2xl font-extrabold text-gray-900 transition-colors duration-300 group-hover:text-primary"
             >
                 {precioFormateado}
             </span>
@@ -64,7 +64,7 @@ const precioFormateado = new Intl.NumberFormat("es-US", {
 
         <a
             class="group/button relative inline-flex items-center justify-center gap-2 px-6 py-3 text-silver-ligth text-sm font-medium bg-gradient-to-r from-primary to-primary/80 rounded-xl shadow-lg shadow-primary/30 transition-all duration-300 hover:from-primary/90 hover:to-primary hover:shadow-xl hover:shadow-primary/50 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-white active:translate-y-0 overflow-hidden"
-            href={`/producto/${id}`}
+            href={`/Catalogo/producto/${id}`}
         >
             <span
                 class="relative z-10 transition-colors duration-300 group-hover/button:text-white"

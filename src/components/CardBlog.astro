@@ -1,11 +1,12 @@
 ---
-const { id, titulo, descripcion, autor, fecha, imagen, categoria, destacado } = Astro.props;
+const { id, titulo, descripcion, autor, fecha, imagen, categoria, destacado } =
+    Astro.props;
 
 // Formatear fecha
-const fechaFormateada = new Date(fecha).toLocaleDateString('es-ES', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
+const fechaFormateada = new Date(fecha).toLocaleDateString("es-ES", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
 });
 ---
 
@@ -29,19 +30,10 @@ const fechaFormateada = new Date(fecha).toLocaleDateString('es-ES', {
 
         <!-- Badge de categoría -->
         <div
-            class="absolute top-3 right-3 backdrop-blur-xl bg-primary/90 text-white px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide shadow-lg"
+            class="absolute top-3 right-3 backdrop-blur-xl bg-primary/90 text-gold-light px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide shadow-lg"
         >
             {categoria}
         </div>
-
-        <!-- Badge destacado -->
-        {destacado && (
-            <div
-                class="absolute top-3 left-3 backdrop-blur-xl bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-2 py-1 rounded-full text-xs font-bold uppercase tracking-wide shadow-lg"
-            >
-                ⭐ Destacado
-            </div>
-        )}
     </div>
 
     <!-- Información del artículo -->
@@ -62,13 +54,19 @@ const fechaFormateada = new Date(fecha).toLocaleDateString('es-ES', {
         <div class="flex items-center gap-4 text-xs text-gray-500">
             <div class="flex items-center gap-1">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                    <path
+                        fill-rule="evenodd"
+                        d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                        clip-rule="evenodd"></path>
                 </svg>
                 <span>{autor}</span>
             </div>
             <div class="flex items-center gap-1">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
+                    <path
+                        fill-rule="evenodd"
+                        d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                        clip-rule="evenodd"></path>
                 </svg>
                 <span>{fechaFormateada}</span>
             </div>
@@ -112,17 +110,17 @@ const fechaFormateada = new Date(fecha).toLocaleDateString('es-ES', {
 </article>
 
 <style>
-.line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
 
-.line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
+    .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
 </style>

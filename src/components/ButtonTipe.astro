@@ -1,0 +1,10 @@
+---
+const { title, tipe } = Astro.props;
+---
+
+<button
+    class="px-6 py-3 bg-zafiro text-silver border border-zafiro/60 rounded-full hover:bg-zafiro-claro hover:text-silver-ligth transition-all duration-300 backdrop-blur-sm"
+    data-filter={tipe}
+>
+    {title}
+</button>
