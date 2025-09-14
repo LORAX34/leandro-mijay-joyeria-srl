@@ -1,40 +1,30 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import productos from "@/data/productos.json";
+import blogs from "@/data/blog.json";
 import Decoration from "@/components/Decoration.astro";
-import CardProductoExacto from "@/components/CardProductoExacto.astro";
+import CardBlog from "@/components/CardBlog.astro";
 
 export async function getStaticPaths() {
-    return productos.map((producto) => ({
-        params: { id: producto.id.toString() },
-        props: { producto },
+    return blogs.map((b) => ({
+        params: { id: b.id.toString() },
+        props: { b },
     }));
 }
 
-const { producto } = Astro.props;
+const { b } = Astro.props;
 
-if (!producto) {
+if (!b) {
     return Astro.redirect("/404");
 }
 
-// Productos relacionados (misma categoría, excluyendo el actual)
-const productosRelacionados = productos
-    .filter((p) => p.categoria === producto.categoria && p.id !== producto.id)
+const blogsRelacionados = blogs
+    .filter((blog) => blog.categoria === b.categoria && blog.id !== b.id)
     .slice(0, 4);
-
-// Formatear precio
-const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("es-US", {
-        style: "currency",
-        currency: "USD",
-        minimumFractionDigits: 2,
-    }).format(price);
-};
 ---
 
 <Layout
-    title={`${producto.titulo} - Leandro y Mijail Joyería`}
-    description={producto.descripcion}
+    title={`${b.titulo} - Leandro y Mijail Joyería`}
+    description={b.descripcion}
 >
     <main class="min-h-screen bg-primary">
         <!-- Producto Principal -->
@@ -50,38 +40,21 @@ const formatPrice = (price: number) => {
                                 class="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 backdrop-blur-xl rounded-3xl border border-primary/20 overflow-hidden"
                             >
                                 <img
-                                    src={producto.imagen}
-                                    alt={producto.titulo}
+                                    src={b.imagen}
+                                    alt={b.titulo}
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                    transition:name={`producto-${producto.id}`}
+                                    transition:name={`Blog-${b.id}`}
                                 />
 
                                 <!-- Badge destacado -->
                                 {
-                                    producto.destacado && (
+                                    b.destacado && (
                                         <div class="absolute top-6 left-6 bg-gold-light/90 backdrop-blur-sm text-primary px-4 py-2 rounded-full text-sm font-bold">
                                             ⭐ Destacado
                                         </div>
                                     )
                                 }
                             </div>
-                        </div>
-
-                        <!-- Galería de miniaturas (simulada) -->
-                        <div
-                            class="grid grid-cols-4 gap-4 animate-blurred-fade-in animate-delay-250"
-                        >
-                            {
-                                [1, 2, 3, 4].map((index) => (
-                                    <div class="aspect-square bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border border-primary/20 cursor-pointer hover:border-gold-light/50 transition-colors">
-                                        <img
-                                            src={producto.imagen}
-                                            alt={`${producto.titulo} - Vista ${index}`}
-                                            class="w-full h-full object-cover rounded-xl opacity-80 hover:opacity-100 transition-opacity"
-                                        />
-                                    </div>
-                                ))
-                            }
                         </div>
                     </div>
 
@@ -90,18 +63,10 @@ const formatPrice = (price: number) => {
                         <!-- Título y Precio -->
                         <div class="space-y-4">
                             <h1
-                                class="text-4xl lg:text-5xl font-bold text-shadow-silver-ligth leading-tight"
+                                class="text-4xl lg:text-5xl font-bold text-gold-light text-shadow-gold-light leading-tight"
                             >
-                                {producto.titulo}
+                                {b.titulo}
                             </h1>
-
-                            <div class="flex items-center gap-4">
-                                <span
-                                    class="text-4xl font-bold text-gold-light"
-                                >
-                                    {formatPrice(producto.precio)}
-                                </span>
-                            </div>
                         </div>
 
                         <!-- Descripción -->
@@ -112,7 +77,7 @@ const formatPrice = (price: number) => {
                                 Descripción
                             </h3>
                             <p class="text-gray-200 text-lg leading-relaxed">
-                                {producto.descripcion}
+                                {b.descripcion}
                             </p>
                         </div>
 
@@ -123,7 +88,7 @@ const formatPrice = (price: number) => {
                             >
                                 Características
                             </h3>
-                            <div class="grid grid-cols-2 gap-4">
+                            <div class="grid grid-cols-3 gap-4">
                                 <div
                                     class="bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-xl rounded-xl p-4 border border-primary/20"
                                 >
@@ -133,79 +98,36 @@ const formatPrice = (price: number) => {
                                     <div
                                         class="text-shadow-silver-ligth font-semibold capitalize"
                                     >
-                                        {producto.categoria}
+                                        {b.categoria}
                                     </div>
                                 </div>
+
                                 <div
                                     class="bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-xl rounded-xl p-4 border border-primary/20"
                                 >
                                     <div class="text-gray-200 text-sm">
-                                        Estado
+                                        Fecha
                                     </div>
                                     <div
-                                        class="text-shadow-silver-ligth font-semibold"
+                                        class="text-shadow-silver-ligth font-semibold capitalize"
                                     >
-                                        {
-                                            producto.disponible
-                                                ? "Disponible"
-                                                : "No disponible"
-                                        }
+                                        {b.fecha}
                                     </div>
                                 </div>
+
                                 <div
                                     class="bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-xl rounded-xl p-4 border border-primary/20"
                                 >
                                     <div class="text-gray-200 text-sm">
-                                        Código
+                                        Autor
                                     </div>
                                     <div
                                         class="text-shadow-silver-ligth font-semibold"
                                     >
-                                        LM-{
-                                            producto.id
-                                                .toString()
-                                                .padStart(4, "0")
-                                        }
-                                    </div>
-                                </div>
-                                <div
-                                    class="bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-xl rounded-xl p-4 border border-primary/20"
-                                >
-                                    <div class="text-gray-200 text-sm">
-                                        Garantía
-                                    </div>
-                                    <div
-                                        class="text-shadow-silver-ligth font-semibold"
-                                    >
-                                        2 años
+                                        {b.autor}
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Botones de Acción -->
-                        <div class="space-y-4">
-                            {
-                                producto.disponible ? (
-                                    <div class="space-y-3 justify-center items-center flex flex-col ">
-                                        <a
-                                            href="https://wa.me/53538456111"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class=" text-center w-full bg-gradient-to-r from-zafiro to-zafiro/80 hover:from-zafiro/90 hover:to-zafiro/70 text-silver-ligth font-bold py-4 px-8 rounded-xl shadow-lg shadow-zafiro/30 hover:shadow-xl hover:shadow-zafiro/50 hover:-translate-y-1 transition-all duration-300 text-lg"
-                                        >
-                                            📞 Llamar para Consulta
-                                        </a>
-                                    </div>
-                                ) : (
-                                    <button
-                                        disabled
-                                        class="w-full bg-gray-600/50 text-gray-400 font-bold py-4 px-8 rounded-xl cursor-not-allowed text-lg"
-                                    >
-                                        🚫 Producto No Disponible
-                                    </button>
-                                )
-                            }
                         </div>
                     </div>
                 </div>
@@ -214,34 +136,37 @@ const formatPrice = (price: number) => {
 
         <!-- Productos Relacionados -->
         {
-            productosRelacionados.length > 0 && (
+            blogsRelacionados.length > 0 && (
                 <section class="py-20 px-6">
                     <div class="max-w-7xl mx-auto">
                         <div class="text-center mb-16">
                             <Decoration
-                                title="Productos Relacionados"
+                                title="Blogs Relacionados"
                                 subtitle={
-                                    "Otros productos de la categoría " +
-                                    producto.categoria
+                                    "Otros Blogs de la categoría " + b.categoria
                                 }
                             />
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-center items-center">
-                            {productosRelacionados.map(
-                                (productoRelacionado, index) => (
+                            {blogsRelacionados.map(
+                                (blogsRelacionado, index) => (
                                     <div
                                         class="group"
                                         style={`animation-delay: ${index * 0.1}s`}
                                     >
-                                        <CardProductoExacto
-                                            id={productoRelacionado.id}
-                                            titulo={productoRelacionado.titulo}
+                                        <CardBlog
+                                            id={blogsRelacionado.id}
+                                            titulo={blogsRelacionado.titulo}
                                             descripcion={
-                                                productoRelacionado.descripcion
+                                                blogsRelacionado.descripcion
                                             }
-                                            precio={productoRelacionado.precio}
-                                            imagen={productoRelacionado.imagen}
+                                            autor={blogsRelacionado.autor}
+                                            fecha={blogsRelacionado.fecha}
+                                            categoria={
+                                                blogsRelacionado.categoria
+                                            }
+                                            imagen={blogsRelacionado.imagen}
                                         />
                                     </div>
                                 ),
@@ -259,31 +184,13 @@ const formatPrice = (price: number) => {
                     class="bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-xl rounded-3xl p-12 border border-primary/20"
                 >
                     <Decoration
-                        title="¿Te interesa este producto?"
-                        subtitle="   Contáctanos para más información, precios especiales o  para agendar una cita en nuestra joyería."
+                        title="¿Te interesa nuestro contenido?"
+                        subtitle="   Mantente al día con las últimas tendencias en joyería y recibe consejos exclusivos."
                     />
 
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
-                            href="/Contacto"
-                            class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-zafiro text-white font-semibold rounded-xl shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/50 hover:-translate-y-1 transition-all duration-300"
-                        >
-                            Contactar
-                            <svg
-                                class="w-5 h-5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                            </svg>
-                        </a>
-                        <a
-                            href="/Catalogo"
+                            href="/Blog"
                             class="group relative inline-flex items-center justify-center gap-3
                                    px-8 py-4 bg-gradient-to-r from-gold to-gold-light
                                    text-primary font-semibold text-lg rounded-xl
@@ -295,7 +202,7 @@ const formatPrice = (price: number) => {
                                    active:scale-100 active:translate-y-0
                                    overflow-hidden min-w-[200px]"
                         >
-                            <span>Ver mas productos</span>
+                            <span>Volver</span>
                             <div
                                 class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/25 to-white/0
                                        translate-x-[-100%] transition-transform duration-700
