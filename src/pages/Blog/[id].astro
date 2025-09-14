@@ -27,114 +27,144 @@ const blogsRelacionados = blogs
     description={b.descripcion}
 >
     <main class="min-h-screen bg-primary">
-        <!-- Producto Principal -->
+        <!-- Cabecera del Blog -->
         <section class="pb-16 pt-32 px-6">
-            <div class="max-w-7xl mx-auto">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                    <!-- Imagen del Producto -->
-                    <div
-                        class="space-y-6 animate-blurred-fade-in animate-delay-250"
-                    >
-                        <div class="relative group">
-                            <div
-                                class="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 backdrop-blur-xl rounded-3xl border border-primary/20 overflow-hidden"
-                            >
-                                <img
-                                    src={b.imagen}
-                                    alt={b.titulo}
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                    transition:name={`Blog-${b.id}`}
-                                />
-
-                                <!-- Badge destacado -->
-                                {
-                                    b.destacado && (
-                                        <div class="absolute top-6 left-6 bg-gold-light/90 backdrop-blur-sm text-primary px-4 py-2 rounded-full text-sm font-bold">
-                                            ⭐ Destacado
-                                        </div>
-                                    )
-                                }
-                            </div>
-                        </div>
+            <div class="max-w-4xl mx-auto text-center">
+                <h1
+                    class="text-4xl lg:text-5xl font-bold text-gold-light text-shadow-gold-light leading-tight mb-6"
+                >
+                    {b.titulo}
+                </h1>
+                <div
+                    class="flex flex-wrap justify-center items-center gap-6 text-gray-200 mb-8"
+                >
+                    <div class="flex items-center gap-2">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 text-gold-light"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                            ></path>
+                        </svg>
+                        <span>{b.autor}</span>
                     </div>
-
-                    <!-- Información del Producto -->
-                    <div class="space-y-8 animate-fade-in animate-delay-300">
-                        <!-- Título y Precio -->
-                        <div class="space-y-4">
-                            <h1
-                                class="text-4xl lg:text-5xl font-bold text-gold-light text-shadow-gold-light leading-tight"
-                            >
-                                {b.titulo}
-                            </h1>
-                        </div>
-
-                        <!-- Descripción -->
-                        <div class="space-y-4">
-                            <h3
-                                class="text-xl font-semibold text-shadow-silver-ligth"
-                            >
-                                Descripción
-                            </h3>
-                            <p class="text-gray-200 text-lg leading-relaxed">
-                                {b.descripcion}
-                            </p>
-                        </div>
-
-                        <!-- Características -->
-                        <div class="space-y-4">
-                            <h3
-                                class="text-xl font-semibold text-shadow-silver-ligth"
-                            >
-                                Características
-                            </h3>
-                            <div class="grid grid-cols-3 gap-4">
-                                <div
-                                    class="bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-xl rounded-xl p-4 border border-primary/20"
-                                >
-                                    <div class="text-gray-200 text-sm">
-                                        Categoría
-                                    </div>
-                                    <div
-                                        class="text-shadow-silver-ligth font-semibold capitalize"
-                                    >
-                                        {b.categoria}
-                                    </div>
-                                </div>
-
-                                <div
-                                    class="bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-xl rounded-xl p-4 border border-primary/20"
-                                >
-                                    <div class="text-gray-200 text-sm">
-                                        Fecha
-                                    </div>
-                                    <div
-                                        class="text-shadow-silver-ligth font-semibold capitalize"
-                                    >
-                                        {b.fecha}
-                                    </div>
-                                </div>
-
-                                <div
-                                    class="bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-xl rounded-xl p-4 border border-primary/20"
-                                >
-                                    <div class="text-gray-200 text-sm">
-                                        Autor
-                                    </div>
-                                    <div
-                                        class="text-shadow-silver-ligth font-semibold"
-                                    >
-                                        {b.autor}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="flex items-center gap-2">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 text-gold-light"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                            ></path>
+                        </svg>
+                        <span>{b.fecha}</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 text-gold-light"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                            ></path>
+                        </svg>
+                        <span class="capitalize">{b.categoria}</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Productos Relacionados -->
+        <!-- Imagen Destacada -->
+        <section class="pb-16 px-6">
+            <div class="max-w-5xl mx-auto">
+                <div class="relative group">
+                    <div
+                        class="bg-gradient-to-br from-primary/20 to-primary/5 backdrop-blur-xl rounded-3xl border border-primary/20 overflow-hidden"
+                    >
+                        <img
+                            src={b.imagen}
+                            alt={b.titulo}
+                            class="w-full h-auto max-h-[500px] object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+                        {
+                            b.destacado && (
+                                <div class="absolute top-6 left-6 bg-gold-light/90 backdrop-blur-sm text-primary px-4 py-2 rounded-full text-sm font-bold">
+                                    ⭐ Destacado
+                                </div>
+                            )
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contenido del Blog -->
+        <section class="pb-16 px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="prose prose-lg prose-invert max-w-none">
+                    <p class="text-xl text-gray-200 leading-relaxed mb-8">
+                        {b.descripcion}
+                    </p>
+
+                    <!-- Aquí iría el contenido completo del blog -->
+                    <div class="text-gray-200 leading-relaxed space-y-6">
+                        <!-- Este contenido normalmente vendría de una propiedad como b.contenido -->
+                        <p>
+                            Este es un ejemplo de contenido de blog. En una
+                            implementación real, aquí se mostraría el contenido
+                            completo de la publicación, que podría incluir
+                            múltiples párrafos, imágenes, citas, y otros
+                            elementos de formato.
+                        </p>
+
+                        <p>
+                            Las joyas no son solo adornos; son expresiones de
+                            arte, símbolos de amor y legados que perduran a
+                            través del tiempo. En Leandro y Mijail Joyería, cada
+                            pieza es creada con dedicación y atención al
+                            detalle, asegurando que cada cliente reciba una obra
+                            maestra que atesorará por siempre.
+                        </p>
+
+                        <h3
+                            class="text-2xl font-semibold text-gold-light mt-10 mb-4"
+                        >
+                            El arte de la joyería fina
+                        </h3>
+
+                        <p>
+                            Nuestro proceso de creación combina técnicas
+                            tradicionales con tecnología moderna, resultando en
+                            piezas que honran la herencia de la joyería mientras
+                            incorporan diseños contemporáneos. Cada joya cuenta
+                            una historia única, reflejando la personalidad y el
+                            estilo de quien la lleva.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blogs Relacionados -->
         {
             blogsRelacionados.length > 0 && (
                 <section class="py-20 px-6">
@@ -185,10 +215,12 @@ const blogsRelacionados = blogs
                 >
                     <Decoration
                         title="¿Te interesa nuestro contenido?"
-                        subtitle="   Mantente al día con las últimas tendencias en joyería y recibe consejos exclusivos."
+                        subtitle="Mantente al día con las últimas tendencias en joyería y recibe consejos exclusivos."
                     />
 
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <div
+                        class="flex flex-col sm:flex-row gap-4 justify-center mt-8"
+                    >
                         <a
                             href="/Blog"
                             class="group relative inline-flex items-center justify-center gap-3
@@ -202,7 +234,7 @@ const blogsRelacionados = blogs
                                    active:scale-100 active:translate-y-0
                                    overflow-hidden min-w-[200px]"
                         >
-                            <span>Volver</span>
+                            <span>Volver al Blog</span>
                             <div
                                 class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/25 to-white/0
                                        translate-x-[-100%] transition-transform duration-700
@@ -246,73 +278,23 @@ const blogsRelacionados = blogs
         -webkit-line-clamp: unset;
     }
 
-    /* Transiciones suaves para view transitions */
-    img[transition\\:name] {
-        view-transition-name: var(--transition-name);
+    /* Estilos para el contenido del blog */
+    .prose.invert {
+        --tw-prose-body: #e5e7eb;
+        --tw-prose-headings: #f9d67d;
+        --tw-prose-lead: #d1d5db;
+        --tw-prose-links: #f9d67d;
+        --tw-prose-bold: #f9fafb;
+        --tw-prose-counters: #9ca3af;
+        --tw-prose-bullets: #4b5563;
+        --tw-prose-hr: #374151;
+        --tw-prose-quotes: #f3f4f6;
+        --tw-prose-quote-borders: #374151;
+        --tw-prose-captions: #9ca3af;
+        --tw-prose-code: #f9fafb;
+        --tw-prose-pre-code: #d1d5db;
+        --tw-prose-pre-bg: #1f2937;
+        --tw-prose-th-borders: #374151;
+        --tw-prose-td-borders: #374151;
     }
 </style>
-
-<script>
-    // Funcionalidad para cambiar imagen principal con miniaturas
-    document.addEventListener("DOMContentLoaded", function () {
-        const mainImage = document.querySelector(".aspect-square img");
-        const thumbnails = document.querySelectorAll(".grid.grid-cols-4 img");
-
-        thumbnails.forEach((thumbnail, index) => {
-            thumbnail.addEventListener(
-                "click",
-                function (this: HTMLImageElement) {
-                    // Remover clase activa de todas las miniaturas
-                    thumbnails.forEach((thumb) => {
-                        const parent = thumb.parentElement;
-                        if (parent) {
-                            parent.classList.remove("border-gold-light");
-                        }
-                    });
-
-                    // Agregar clase activa a la miniatura clickeada
-                    const parent = this.parentElement;
-                    if (parent) {
-                        parent.classList.add("border-gold-light", "border-2");
-                    }
-
-                    // Cambiar imagen principal (en un caso real, aquí cambiarías la src)
-                    if (mainImage && mainImage instanceof HTMLImageElement) {
-                        mainImage.style.transform = "scale(0.95)";
-                        setTimeout(() => {
-                            if (mainImage instanceof HTMLImageElement) {
-                                mainImage.style.transform = "scale(1)";
-                            }
-                        }, 200);
-                    }
-                },
-            );
-        });
-
-        // Botones de acción
-        const solicitarInfoBtn = document.querySelector(
-            'button:contains("Solicitar Información")',
-        );
-        const llamarBtn = document.querySelector(
-            'button:contains("Llamar para Consulta")',
-        );
-
-        // Agregar funcionalidad a los botones
-        document.querySelectorAll("button").forEach((button) => {
-            if (button.textContent.includes("Solicitar Información")) {
-                button.addEventListener("click", () => {
-                    // Redirigir a contacto con parámetros del producto
-                    const productId = window.location.pathname.split("/").pop();
-                    window.location.href = `/Contacto?producto=${productId}`;
-                });
-            }
-
-            if (button.textContent.includes("Llamar para Consulta")) {
-                button.addEventListener("click", () => {
-                    // Aquí podrías abrir el marcador telefónico
-                    window.location.href = "tel:+1234567890";
-                });
-            }
-        });
-    });
-</script>

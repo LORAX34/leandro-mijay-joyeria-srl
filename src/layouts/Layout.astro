@@ -3,7 +3,6 @@ import "@/styles/global.css";
 import "@fontsource-variable/onest";
 import Header from "@/components/layout/Header.astro";
 import Footer from "@/components/layout/Footer.astro";
-// import { ClientRouter } from "astro:transitions";
 import Analytics from "@vercel/analytics/astro";
 const { title, showHeader = true, showFooter = true } = Astro.props;
 ---
@@ -20,7 +19,6 @@ const { title, showHeader = true, showFooter = true } = Astro.props;
             content="Leandro Mijay Joyería SRL - La joyería preferida por los famosos y la farándula"
         />
         <title>{title}</title>
-        <!-- <ClientRouter /> -->
         <Analytics />
     </head>
     <body class="min-h-screen flex flex-col">
